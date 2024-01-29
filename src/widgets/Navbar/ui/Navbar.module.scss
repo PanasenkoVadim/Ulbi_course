@@ -1,0 +1,9 @@
+
+.nav {
+    background-color: var(--inverted-bg-color);
+    ul {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+}

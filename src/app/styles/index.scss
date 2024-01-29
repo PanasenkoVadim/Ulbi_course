@@ -9,8 +9,12 @@
     color: var(--primary-color);
     min-height: 100vh;
     transition: all .2s ease;
+    display: flex;
+    flex-direction: column;
 }
-
+main{
+    flex-grow: 1;
+}
 .container {
     max-width: 1400px;
     padding: 0 15px;
