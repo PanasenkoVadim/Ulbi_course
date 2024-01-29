@@ -2,18 +2,15 @@ import { FC } from "react";
 import Container from "../../Container/Container";
 import css from "./Header.module.scss";
 import { Navbar } from "widgets/Navbar";
+import { ThemeSwitcher } from "shared/ui/ThemeSwitcher/";
 
-type HeaderProps = {
-  toggleTheme: () => void;
-};
-
-export const Header: FC<HeaderProps> = ({ toggleTheme }) => {
+export const Header: FC = () => {
   return (
     <header className={css.header}>
       <Container>
         <div className={css.inner}>
           <div className={css.logo}>LOGO</div>
-          <button onClick={toggleTheme}>Theme</button>
+          <ThemeSwitcher />
           <Navbar />
         </div>
       </Container>
