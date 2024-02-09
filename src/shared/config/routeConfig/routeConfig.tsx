@@ -3,45 +3,45 @@ import {
   CatalogPage,
   ContactsPage,
   HomePage,
-  TestPage,
-} from "pages";
-import { RouteProps } from "react-router-dom";
+  TestPage
+} from 'pages'
+import { type RouteProps } from 'react-router-dom'
 
 export enum AppRoutes {
-  HOME = "home",
-  ABOUT = "about",
-  CATALOG = "catalog",
-  CONTACTS = "contacts",
-  TEST = "test",
+  HOME = 'home',
+  ABOUT = 'about',
+  CATALOG = 'catalog',
+  CONTACTS = 'contacts',
+  TEST = 'test',
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
-  [AppRoutes.HOME]: "/",
-  [AppRoutes.ABOUT]: "/about",
-  [AppRoutes.CATALOG]: "/catalog",
-  [AppRoutes.CONTACTS]: "/contacts",
-  [AppRoutes.TEST]: "/test",
-};
+  [AppRoutes.HOME]: '/',
+  [AppRoutes.ABOUT]: '/about',
+  [AppRoutes.CATALOG]: '/catalog',
+  [AppRoutes.CONTACTS]: '/contacts',
+  [AppRoutes.TEST]: '/test'
+}
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.HOME]: {
     path: RoutePath.home,
-    element: <HomePage />,
+    element: <HomePage />
   },
   [AppRoutes.ABOUT]: {
     path: RoutePath.about,
-    element: <AboutPage />,
+    element: <AboutPage />
   },
   [AppRoutes.CATALOG]: {
     path: RoutePath.catalog,
-    element: <CatalogPage />,
+    element: <CatalogPage />
   },
   [AppRoutes.CONTACTS]: {
     path: RoutePath.contacts,
-    element: <ContactsPage />,
+    element: <ContactsPage />
   },
   [AppRoutes.TEST]: {
     path: RoutePath.test,
-    element: <TestPage />,
-  },
-};
+    element: <TestPage />
+  }
+}

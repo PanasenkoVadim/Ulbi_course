@@ -1,1 +1,1 @@
-export { ContactsPageLazy as ContactsPage } from "./ui/ContactsPage.lazy";
+export { ContactsPageLazy as ContactsPage } from './ui/ContactsPage.lazy'

@@ -1,8 +1,8 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next'
 
 const Contacts = () => {
-  const { t } = useTranslation("contacts");
-  return <div>{t("Контакты")}</div>;
-};
+  const { t } = useTranslation('contacts')
+  return <div>{t('Контакты')}</div>
+}
 
-export default Contacts;
+export default Contacts

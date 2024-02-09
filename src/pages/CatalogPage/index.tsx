@@ -1,1 +1,1 @@
-export { CatalogPageLazy as CatalogPage } from "./ui/CatalogPage.lazy";
+export { CatalogPageLazy as CatalogPage } from './ui/CatalogPage.lazy'
