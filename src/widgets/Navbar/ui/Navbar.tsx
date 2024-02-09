@@ -14,19 +14,19 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
     <nav className={classNames(css.nav, {}, [className])}>
       <ul>
         <li>
-          <AppLink theme={AppLinkTheme.SECONDARY} to="/">{t('Главная')}</AppLink>
+          <AppLink theme={AppLinkTheme.PRIMARY} to="/">{t('Главная')}</AppLink>
         </li>
         <li>
-          <AppLink theme={AppLinkTheme.SECONDARY} to="/about">{t('О нас')}</AppLink>
+          <AppLink theme={AppLinkTheme.PRIMARY} to="/about">{t('О нас')}</AppLink>
         </li>
         <li>
-          <AppLink theme={AppLinkTheme.SECONDARY} to="/catalog">{t('Каталог')}</AppLink>
+          <AppLink theme={AppLinkTheme.PRIMARY} to="/catalog">{t('Каталог')}</AppLink>
         </li>
         <li>
-          <AppLink theme={AppLinkTheme.SECONDARY} to="/contacts">{t('Контакты')}</AppLink>
+          <AppLink theme={AppLinkTheme.PRIMARY} to="/contacts">{t('Контакты')}</AppLink>
         </li>
         <li>
-          <AppLink theme={AppLinkTheme.SECONDARY} to="/test">{t('Тест')}</AppLink>
+          <AppLink theme={AppLinkTheme.PRIMARY} to="/test">{t('Тест')}</AppLink>
         </li>
       </ul>
     </nav>
