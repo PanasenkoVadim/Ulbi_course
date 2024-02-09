@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import classNames from 'shared/lib/classNames/classNames'
+import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher'
 import css from './Sidebar.module.scss'
 
 interface SidebarProps {
-	className: string
+	className?: string
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
@@ -14,7 +15,17 @@ export const Sidebar = ({ className }: SidebarProps) => {
 				className,
 			])}
 		>
-			Sidebar
+			<div className={css.button_wrapper}>
+				<button
+					className={css.button_open}
+					onClick={() => setCollapsed(!collapsed)}
+				>
+					{'==>'}
+				</button>
+			</div>
+			<div className={css.switchers}>
+				<ThemeSwitcher />
+			</div>
 		</div>
 	)
 }

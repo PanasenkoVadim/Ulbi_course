@@ -1,22 +1,27 @@
-@import "reset.scss";
-@import "variables";
-@import "themes";
+@import 'reset.scss';
+@import 'variables';
+@import 'themes';
 
 .app {
-    font: var(--font-m);
-    letter-spacing: 0.05em;
-    background: var(--bg-color);
-    color: var(--primary-color);
-    min-height: 100vh;
-    transition: all .2s ease;
-    display: flex;
-    flex-direction: column;
+	font: var(--font-m);
+	letter-spacing: 0.05em;
+	background: var(--bg-color);
+	color: var(--primary-color);
+	min-height: 100vh;
+	transition: all 0.2s ease;
+	display: flex;
+	flex-direction: column;
 }
-main{
-    flex-grow: 1;
+main {
+	flex-grow: 1;
+}
+.wrapper {
+	display: flex;
+	height: 100%;
+	flex-grow: 1;
 }
 .container {
-    max-width: 1400px;
-    padding: 0 15px;
-    margin: 0 auto;
+	max-width: 1400px;
+	padding: 0 15px;
+	margin: 0 auto;
 }
