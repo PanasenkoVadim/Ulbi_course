@@ -1,6 +1,6 @@
 .sidebar {
 	background-color: #c3c3c3;
-	width: 150px;
+	width: 205px;
 	transition: width 0.3s ease;
 	position: relative;
 	.button_open {
@@ -26,5 +26,8 @@
 	left: 0;
 	width: 100%;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	gap: 30px;
+	// justify-content: center;
 }

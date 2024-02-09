@@ -1,5 +1,8 @@
-const Catalog = () => {
-  return <div>Catalog</div>;
+import { useTranslation } from "react-i18next";
+
+const Contacts = () => {
+  const { t } = useTranslation("contacts");
+  return <div>{t("Контакты")}</div>;
 };
 
-export default Catalog;
+export default Contacts;
