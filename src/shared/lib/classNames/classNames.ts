@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 type Mods = Record<string, boolean | string>
 
 export default function classNames(
@@ -9,9 +8,8 @@ export default function classNames(
 	return [
 		cls,
 		...additional.filter(Boolean),
-		Object.entries(mods)
-			.filter(([className, value]) => Boolean(value))
-			.map(([className, value]) => className)
-			.join(' '),
+		...Object.entries(mods)
+			.filter(([_, value]) => Boolean(value))
+			.map(([className]) => className),
 	].join(' ')
 }
