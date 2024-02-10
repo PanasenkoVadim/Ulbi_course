@@ -3,6 +3,7 @@ import {
   CatalogPage,
   ContactsPage,
   HomePage,
+  NotFoundPage,
   TestPage
 } from 'pages'
 import { type RouteProps } from 'react-router-dom'
@@ -12,7 +13,8 @@ export enum AppRoutes {
   ABOUT = 'about',
   CATALOG = 'catalog',
   CONTACTS = 'contacts',
-  TEST = 'test',
+  ERROR = 'error',
+  TEST = 'test'
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
@@ -20,7 +22,8 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.ABOUT]: '/about',
   [AppRoutes.CATALOG]: '/catalog',
   [AppRoutes.CONTACTS]: '/contacts',
-  [AppRoutes.TEST]: '/test'
+  [AppRoutes.ERROR]: '/*',
+  [AppRoutes.TEST]: '/test',
 }
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
@@ -39,6 +42,10 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.CONTACTS]: {
     path: RoutePath.contacts,
     element: <ContactsPage />
+  },
+  [AppRoutes.ERROR]: {
+    path: RoutePath.error,
+    element: <NotFoundPage />
   },
   [AppRoutes.TEST]: {
     path: RoutePath.test,

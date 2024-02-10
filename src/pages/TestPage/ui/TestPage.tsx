@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next'
+import { PageLoader } from 'widgets/PageLoader'
 
 const TestPage = () => {
   const { t } = useTranslation()
-  return <div> {t('Тестовая старница')}</div>
+  return <> <PageLoader/></>
 }
 export default TestPage

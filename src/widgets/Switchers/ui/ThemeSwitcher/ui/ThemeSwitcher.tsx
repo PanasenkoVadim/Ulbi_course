@@ -2,7 +2,7 @@ import { useTheme } from 'app/providers/ThemeProvider'
 import { type FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import classNames from 'shared/lib/classNames/classNames'
-import css from './ThemeSwither.module.scss'
+import css from './ThemeSwitcher.module.scss'
 
 interface ThemeSwitcherProps {
   className?: string

@@ -1,5 +1,5 @@
 .sidebar {
-	background-color: #c3c3c3;
+	background-color: var(--inverted-bg-color);
 	width: 205px;
 	transition: width 0.3s ease;
 	position: relative;
@@ -23,6 +23,10 @@
 .button_wrapper {
 	display: flex;
 	justify-content: flex-end;
+}
+
+.button_open {
+	color: var(--inverted-primary-color);
 }
 
 .switchers {
