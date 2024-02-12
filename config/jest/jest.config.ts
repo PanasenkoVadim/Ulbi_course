@@ -3,8 +3,8 @@
  * https://jestjs.io/docs/configuration
  */
 
-import type { Config } from "jest";
-import path from "path";
+import type { Config } from 'jest'
+import path from 'path'
 
 const config: Config = {
   // Automatically clear mock calls, instances, contexts and results before every test
@@ -38,8 +38,17 @@ const config: Config = {
   // testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
   testMatch: ["<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)"],
 
-  modulePaths: ["<rootDir>src"],
+	modulePaths: ['<rootDir>src'],
 
+	setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+
+	moduleNameMapper: {
+		'\\.s?css$': 'identity-obj-proxy',
+		'\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+	},
+	// All imported modules in your tests should be mocked automatically
+	// automock: false,
+  
   moduleNameMapper: {
     "\\.s?css$": "identity-obj-proxy",
     "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"), 

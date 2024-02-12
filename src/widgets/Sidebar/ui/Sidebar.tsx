@@ -10,18 +10,10 @@ interface SidebarProps {
 export const Sidebar = ({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
   return (
-    <div
-      data-testid={"sidebar"}
-      className={classNames(css.sidebar, { [css.collapsed]: collapsed }, [
-        className,
-      ])}
-    >
-      <div className={css.button_wrapper}>
-        <button
-          className={css.button_open}
-          onClick={() => {
-            setCollapsed(!collapsed);
-          }}
+        <div data-testid="sidebar"
+          className={classNames(css.sidebar, { [css.collapsed]: collapsed }, [
+            className
+          ])}
         >
           {"==>"}
         </button>
