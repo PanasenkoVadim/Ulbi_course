@@ -10,7 +10,7 @@ interface SidebarProps {
 export const Sidebar = ({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false)
   return (
-        <div
+        <div data-testid="sidebar"
           className={classNames(css.sidebar, { [css.collapsed]: collapsed }, [
             className
           ])}
