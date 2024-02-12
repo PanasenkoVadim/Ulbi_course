@@ -5,6 +5,7 @@
 	position: relative;
 
 	.button_open {
+		color: var(--inverted-primary-color);
 		margin-right: 20px;
 		font-size: 16px;
 		font-weight: 700;
@@ -23,10 +24,6 @@
 .button_wrapper {
 	display: flex;
 	justify-content: flex-end;
-}
-
-.button_open {
-	color: var(--inverted-primary-color);
 }
 
 .switchers {
