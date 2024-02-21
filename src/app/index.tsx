@@ -13,7 +13,7 @@ export default function App () {
   return (
         <div className={classNames('app', {}, [theme])}>
           <Suspense fallback="">
-                <Header />
+                <Header /> 
                 <div className="wrapper">
                   <Sidebar />
                   <Router />
