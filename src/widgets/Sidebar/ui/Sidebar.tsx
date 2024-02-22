@@ -3,7 +3,7 @@ import classNames from "shared/lib/classNames/classNames";
 import { LangSwitcher, ThemeSwitcher } from "widgets/Switchers";
 import css from "./Sidebar.module.scss";
 import MenuLogo from "shared/static/images/menuBtn.svg";
-import { Button } from "shared/ui/AppButton/Button";
+import { Button } from "shared/ui/Button/Button";
 import { Navbar } from "widgets/Navbar";
 
 interface SidebarProps {
@@ -24,7 +24,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
       ])}
     >
       <div className={css.inner}>
-        <Button className={css.button_open} onClick={onOpenClick}>
+        <Button data-testid="sidebar-toggle" className={css.button_open} onClick={onOpenClick}>
           <MenuLogo />
         </Button>
         <Navbar />
