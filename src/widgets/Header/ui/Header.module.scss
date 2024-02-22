@@ -14,3 +14,13 @@
 	font-weight: 700;
 	font-size: 24px;
 }
+
+.actions{
+	&_btn{
+		color: var(--inverted-primary-color);
+
+		&:first-child{
+			margin-right: 30px;
+		}
+	}
+}
