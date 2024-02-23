@@ -1,9 +1,12 @@
 :root {
-    --font-family-main: consolas, 'Times New Roman', serif;
-    --fonst-size-m: 16px;
-    --font-line-m: 24px;
-    --font-m: var(--fonst-size-m) / var(--font-line-m) var(--font-family-main);
-    --fonst-size-l: 24px;
-    --font-line-l: 32px;
-    --font-l: var(--fonst-size-l) var(--font-line-l) var(--font-family-main);
+	--font-family-main: consolas, 'Times New Roman', serif;
+	--fonst-size-m: 16px;
+	--font-line-m: 24px;
+	--font-m: var(--fonst-size-m) / var(--font-line-m) var(--font-family-main);
+	--fonst-size-l: 24px;
+	--font-line-l: 32px;
+	--font-l: var(--fonst-size-l) var(--font-line-l) var(--font-family-main);
+
+	//Colors
+	--overlay-color: rgba(25 25 25 / 0.7);
 }

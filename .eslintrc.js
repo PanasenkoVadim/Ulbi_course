@@ -1,36 +1,3 @@
-// module.exports = {
-//     "env": {
-//         "browser": true,
-//         "es2021": true
-//     },
-//     "extends": [
-//         "standard-with-typescript",
-//         "plugin:react/recommended"
-//     ],
-//     "overrides": [
-//         {
-//             "env": {
-//                 "node": true
-//             },
-//             "files": [
-//                 ".eslintrc.{js,cjs}"
-//             ],
-//             "parserOptions": {
-//                 "sourceType": "script"
-//             }
-//         }
-//     ],
-//     "parserOptions": {
-//         "ecmaVersion": "latest",
-//         "sourceType": "module"
-//     },
-//     "plugins": [
-//         "react"
-//     ],
-//     "rules": {
-//         "@typescript-eslint/prefer-nullish-coalescing": "error"
-//     }
-// }
 module.exports = {
 	env: {
 		browser: true,
@@ -50,7 +17,7 @@ module.exports = {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
 	},
-	plugins: ['react', '@typescript-eslint', 'i18next'],
+	plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
 	rules: {
 		'react/jsx-filename-extension': [
 			2,
@@ -72,6 +39,8 @@ module.exports = {
 			'error',
 			{ markupOnly: true, ignoreAttribute: ['data-testid', 'to'] },
 		],
+		'react-hooks/rules-of-hooks': 'error',
+		'react-hooks/exhaustive-deps': 'error',
 	},
 	globals: {
 		__IS_DEV__: true,
