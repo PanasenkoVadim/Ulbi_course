@@ -24,7 +24,7 @@
 	display: block;
 	margin-right: 10px;
 	width: 20px;
-	flex: 0 0  20px;
+	flex: 0 0 20px;
 
 	path {
 		fill: var(--inverted-primary-color);
@@ -37,13 +37,14 @@
 	opacity: 0;
 	white-space: nowrap;
 	visibility: hidden;
-	transition: .3s;
+	transition: 0.3s ease;
+	transition-property: opacity, visibility;
 	width: 0;
-	
-	[class^="sidebar-open"] & {
-		opacity: 1;
-		transition:  .3s .3s;
-		visibility: visible;
-	}
 
+	[class^='sidebar-open'] & {
+		opacity: 1;
+		transition: 0.3s 0.3s ease;
+		visibility: visible;
+		transition-property: opacity, visibility;
+	}
 }

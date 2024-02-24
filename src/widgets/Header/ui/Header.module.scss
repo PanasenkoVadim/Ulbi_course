@@ -15,11 +15,11 @@
 	font-size: 24px;
 }
 
-.actions{
-	&_btn{
+.personal {
+	&_btn {
 		color: var(--inverted-primary-color);
 
-		&:first-child{
+		&:first-child {
 			margin-right: 30px;
 		}
 	}
