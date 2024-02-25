@@ -1,6 +1,11 @@
-import { PageLoader } from 'widgets/PageLoader'
+import { PageLoader } from 'shared/ui/PageLoader'
 
 const TestPage = () => {
-  return <> <PageLoader/></>
+	return (
+		<>
+			{' '}
+			<PageLoader />
+		</>
+	)
 }
 export default TestPage

@@ -26,7 +26,7 @@
 }
 
 .content {
-	padding: 20px;
+	padding: 40px;
 	border-radius: 12px;
 	background-color: var(--bg-color);
 	position: relative;
@@ -44,11 +44,10 @@
 
 .closeBtn {
 	position: absolute;
-	right: 6px;
-	top: 10px;
+	right: 16px;
+	top: 24px;
 	cursor: pointer;
 	user-select: none;
-	font-weight: 700;
 	line-height: 0;
-	font-size: 24px;
+	font-size: 32px;
 }
