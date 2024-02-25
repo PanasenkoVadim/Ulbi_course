@@ -1,6 +1,6 @@
 import classNames from 'shared/lib/classNames/classNames'
 import css from './Modal.module.scss'
-import { FC, ReactNode, useCallback, useEffect } from 'react'
+import { FC, ReactNode, useCallback, useEffect, useState } from 'react'
 import Portal from '../Portal/Portal'
 
 interface ModalProps {
@@ -8,10 +8,18 @@ interface ModalProps {
 	children?: ReactNode
 	isOpen?: boolean
 	onClose?: () => void
+	lazy?: boolean
 }
 
 export const Modal: FC<ModalProps> = props => {
-	const { className, children, isOpen = false, onClose } = props
+	const { className, children, isOpen = false, onClose, lazy } = props
+	const [isMounted, setIsMounted] = useState(false)
+
+	useEffect(() => {
+		if (isOpen) {
+			setIsMounted(true)
+		}
+	}, [isOpen])
 
 	const closeHandler = useCallback(() => {
 		if (onClose) {
@@ -36,6 +44,8 @@ export const Modal: FC<ModalProps> = props => {
 			window.removeEventListener('keydown', onKeyDown)
 		}
 	}, [isOpen, onKeyDown])
+
+	if (lazy && !isMounted) return
 
 	return (
 		<Portal element={document.getElementById('modal_wrapper')}>
