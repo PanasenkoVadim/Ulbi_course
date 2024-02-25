@@ -4,12 +4,15 @@ import App from 'app'
 import { ThemeProvider } from 'app/providers/ThemeProvider'
 import 'shared/config/i18n/i18n'
 import 'app/styles/index.scss'
+import { StoreProvider } from 'app/providers/StoreProvider'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-	<BrowserRouter>
-		<ThemeProvider>
-			<App />
-		</ThemeProvider>
-	</BrowserRouter>
+	<StoreProvider>
+		<BrowserRouter>
+			<ThemeProvider>
+				<App />
+			</ThemeProvider>
+		</BrowserRouter>
+	</StoreProvider>
 )

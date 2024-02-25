@@ -1,10 +1,15 @@
 .app.dark {
-    --bg-color: #04042b;
-    --inverted-bg-color: #e8e8ea;
-    --primary-color: #049604;
-    --inverted-primary-color: #0232c2;
-    --secondary-color: #04ff04;
-    --inverted-secondary-color: #0449e0;
-    --footer-bg-color: #fff;
-    --footer-font-color: #252525;
+	--bg-color: #313131;
+	--inverted-bg-color: #1f252a;
+	--primary-color: rgb(244 236 204);
+	--inverted-primary-color: #252525;
+	--secondary-color: rgb(204 184 163 / 100%);
+	--inverted-secondary-color: #031330;
+	--footer-bg-color: #fff;
+	--footer-font-color: #0f0404;
+	--hover-bg: #000;
+	--button-bg: rgb(255 255 255 / 10%);
+	--button-hover-bg: rgb(255 255 255 / 20%);
+	--bottom-shadow: 0 1px 2px rgb(244 236 204 / 30%);
+	--right-shadow: 1px 1px 2px rgb(244 236 204 / 30%);
 }

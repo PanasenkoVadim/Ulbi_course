@@ -3,15 +3,16 @@
 	width: 62px;
 	transition: width 0.3s ease-out;
 	position: relative;
+	box-shadow: var(--right-shadow);
 
 	&.collapsed {
-		width: 170px;
+		width: 200px;
 	}
 }
 
 .button_open {
 	position: absolute;
-	right: -30px;
+	right: -40px;
 	top: 8px;
 	display: flex;
 	align-items: center;
@@ -22,6 +23,7 @@
 	height: 40px;
 	border-radius: 0 4px 4px 0;
 	cursor: pointer;
+	box-shadow: var(--right-shadow);
 
 	svg {
 		display: block;
@@ -34,19 +36,21 @@
 		}
 
 		path {
-			fill: var(--bg-color);
+			fill: var(--primary-color);
 		}
 	}
 }
 
 .inner {
 	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 }
 
 .switchers {
-	position: absolute;
-	bottom: 20px;
-	left: 0;
+	padding-bottom: 20px;
+	margin-top: auto;
 	width: 100%;
 	display: flex;
 	flex-direction: column;

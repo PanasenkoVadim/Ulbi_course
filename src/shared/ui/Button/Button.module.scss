@@ -18,9 +18,13 @@
 }
 
 .background {
-	background: var(--bg-color);
+	background: var(--button-bg);
 	color: var(--primary-color);
 	border: none;
+
+	&:hover {
+		background-color: var(--button-hover-bg);
+	}
 }
 
 .backgroundInverted {

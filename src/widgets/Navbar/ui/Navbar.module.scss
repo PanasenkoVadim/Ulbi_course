@@ -1,23 +1,24 @@
 .nav {
-	padding: 10px 20px;
 	top: 0;
 	left: 0;
 
 	ul {
 		display: flex;
 		flex-direction: column;
-
-		li {
-			margin-bottom: 22px;
-			align-items: center;
-		}
 	}
 }
 
 .link {
 	display: flex;
 	align-items: center;
+	margin: 0 auto;
+	width: 100%;
+	padding: 20px;
 	flex-wrap: nowrap;
+
+	&:hover {
+		background-color: var(--hover-bg);
+	}
 }
 
 .logo {
@@ -27,13 +28,13 @@
 	flex: 0 0 20px;
 
 	path {
-		fill: var(--inverted-primary-color);
+		fill: var(--primary-color);
 	}
 }
 
 .text {
 	flex: 1 1 auto;
-	line-height: 1;
+	line-height: 0;
 	opacity: 0;
 	white-space: nowrap;
 	visibility: hidden;

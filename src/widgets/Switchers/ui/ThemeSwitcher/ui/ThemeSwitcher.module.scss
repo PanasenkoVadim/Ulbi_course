@@ -1,6 +1,6 @@
 .btn {
 	background-color: transparent;
-	color: var(--inverted-primary-color);
+	color: var(--primary-color);
 	display: flex;
 	align-items: center;
 	gap: 10px;
@@ -20,7 +20,7 @@
 		position: absolute;
 		width: 26px;
 		height: 26px;
-		background-color: var(--inverted-primary-color);
+		background-color: var(--primary-color);
 		border-radius: 50%;
 		left: 4px;
 		top: 50%;

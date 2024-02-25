@@ -1,11 +1,13 @@
-.footer{
-    background-color: var(--footer-bg-color);
-    color: var(--footer-font-color);
+.footer {
+	background-color: var(--inverted-bg-color);
+	color: var(--primary-color);
+	position: relative;
+	z-index: 10;
 }
 
 .inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 0;
 }

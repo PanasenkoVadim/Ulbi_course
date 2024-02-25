@@ -1,5 +1,6 @@
 .header {
 	background-color: var(--inverted-bg-color);
+	box-shadow: var(--bottom-shadow);
 }
 
 .inner {
@@ -10,14 +11,18 @@
 }
 
 .logo {
-	color: var(--inverted-primary-color);
+	color: var(--primary-color);
 	font-weight: 700;
 	font-size: 24px;
 }
 
 .personal {
 	&_btn {
-		color: var(--inverted-primary-color);
+		color: var(--primary-color);
+
+		&:hover {
+			color: var(--secondary-color);
+		}
 
 		&:first-child {
 			margin-right: 30px;

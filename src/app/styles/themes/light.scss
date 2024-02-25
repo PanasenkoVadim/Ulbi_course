@@ -1,10 +1,15 @@
 .app.light {
-    --bg-color: #e8e8ea;
-    --inverted-bg-color: #04042b;
-    --primary-color: #0232c2;
-    --inverted-primary-color: #049604;
-    --secondary-color: #0449e0;
-    --inverted-secondary-color: #04ff04;
-    --footer-bg-color: #303846;
-    --footer-font-color: #fff;
+	--bg-color: #f8fafc;
+	--inverted-bg-color: #fff;
+	--primary-color: #252525;
+	--inverted-primary-color: #fff3c3;
+	--secondary-color: #031330;
+	--inverted-secondary-color: rgb(204 184 163 / 100%);
+	--footer-bg-color: #303846;
+	--footer-font-color: #fff;
+	--hover-bg: #dbdbdb;
+	--button-bg: rgb(0 0 0 / 10%);
+	--button-hover-bg: rgb(0 0 0 / 20%);
+	--bottom-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+	--right-shadow: 1px 1px 2px rgb(0 0 0 / 10%);
 }
