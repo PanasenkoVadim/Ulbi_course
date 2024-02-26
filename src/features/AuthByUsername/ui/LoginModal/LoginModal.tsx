@@ -17,7 +17,7 @@ export const LoginModal = ({ className, isOpen, onClose }: LoginModalProps) => {
 			onClose={onClose}
 			className={classNames(css.loginModal, {}, [className])}
 		>
-			<LoginForm />
+			<LoginForm className='sadas' />
 		</Modal>
 	)
 }

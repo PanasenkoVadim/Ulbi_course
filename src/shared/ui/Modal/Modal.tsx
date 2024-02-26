@@ -52,8 +52,8 @@ export const Modal: FC<ModalProps> = props => {
 			<div
 				className={classNames(css.modal, { [css.opened]: isOpen }, [className])}
 			>
-				<div className={css.overlay} onClick={closeHandler}>
-					<div className={css.content} onClick={e => e.stopPropagation()}>
+				<div className={css.overlay} onMouseDown={closeHandler}>
+					<div className={css.content} onMouseDown={e => e.stopPropagation()}>
 						{children}
 						<div className={css.closeBtn} onClick={closeHandler}>
 							&#215;
