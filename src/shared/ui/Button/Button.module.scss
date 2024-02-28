@@ -1,7 +1,13 @@
-.Button {
+.button {
 	cursor: pointer;
 	padding: 10px 20px;
 	border-radius: 30px;
+	user-select: none;
+
+	&:disabled {
+		opacity: 0.4;
+		pointer-events: none;
+	}
 }
 
 .clear {

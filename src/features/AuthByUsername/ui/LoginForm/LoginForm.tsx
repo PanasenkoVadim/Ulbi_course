@@ -1,21 +1,22 @@
-import { useTranslation } from 'react-i18next'
-import classNames from 'shared/lib/classNames/classNames'
-import { Button, ThemeButton } from 'shared/ui/Button/Button'
-import css from './LoginForm.module.scss'
-import { Input } from 'shared/ui/Input/Input'
-import { memo, useCallback } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { loginActions } from '../../model/slice/loginSlice'
-import { getLoginState } from '../../model/selectors/getLoginState/getLoginState'
 import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername'
-import { useAppDispatch } from 'app/providers/StoreProvider/ui/StoreProvider'
+import { memo, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
+import classNames from 'shared/lib/classNames/classNames'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDIspatch'
+import { Button, ThemeButton } from 'shared/ui/Button/Button'
+import { Input } from 'shared/ui/Input/Input'
+import { getLoginState } from '../../model/selectors/getLoginState/getLoginState'
+import { loginActions } from '../../model/slice/loginSlice'
+import css from './LoginForm.module.scss'
+import { Text, TextTheme } from 'shared/ui/Text/Text'
 
 interface LoginFormProps {
 	className?: string
 }
 export const LoginForm = memo(({ className }: LoginFormProps) => {
 	const { t } = useTranslation()
-	const { username, password } = useSelector(getLoginState)
+	const { username, password, isLoading, error } = useSelector(getLoginState)
 	const dispatch = useAppDispatch()
 
 	const onChangeUsername = useCallback(
@@ -32,10 +33,12 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
 	)
 	const onLoginClick = useCallback(() => {
 		dispatch(loginByUsername({ username, password }))
+		dispatch(loginActions.setPassword(''))
+		dispatch(loginActions.setUsername(''))
 	}, [dispatch, password, username])
 	return (
 		<div className={classNames(css.form, {}, [className])}>
-			<h1 className={css.form_title}>{t('Авторизация')}</h1>
+			<Text className={css.form_title} title={t('Авторизация')} />
 			<div className={css.form_row}>
 				<div>
 					<label htmlFor='login'>{t('Логин')}</label>
@@ -58,9 +61,11 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
 					id='password'
 				/>
 			</div>
+			{error && <Text text={error} theme={TextTheme.ERROR} />}
 			<Button
 				onClick={onLoginClick}
 				className={css.form_btn}
+				disabled={isLoading}
 				theme={ThemeButton.BACKGROUND}
 			>
 				{t('Войти')}

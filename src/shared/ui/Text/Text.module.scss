@@ -1,0 +1,16 @@
+.wrapper {
+	&.error * {
+		color: var(--red);
+	}
+}
+
+.title {
+	font: var(--font-l);
+	font-weight: 700;
+	color: var(--primary-color);
+}
+
+.text {
+	font: var(--font-m);
+	color: var(--secondary-color);
+}

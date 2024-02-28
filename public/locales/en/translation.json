@@ -12,5 +12,6 @@
 	"Логин": "Login",
 	"Пароль": "Password",
 	"Авторизация": "Auth",
+	"Неверный логин или пароль": "Incorrect login or password",
 	"Зарегистрироваться": "SignUp"
 }
