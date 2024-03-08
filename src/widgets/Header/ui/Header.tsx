@@ -52,7 +52,7 @@ export const Header: FC = () => {
 					</div>
 				</div>
 			</Container>
-			<LoginModal isOpen={modalOpen} onClose={onToggleModal} />
+			{modalOpen && <LoginModal isOpen={modalOpen} onClose={onToggleModal} />}
 		</header>
 	)
 }
