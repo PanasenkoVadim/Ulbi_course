@@ -7,6 +7,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDIspatch'
 import { Button, ThemeButton } from 'shared/ui/Button/Button'
 import Container from '../../Container/Container'
 import css from './Header.module.scss'
+import AppLink from 'shared/ui/AppLink/AppLink'
+import { AppRoutes } from 'shared/config/routeConfig/routeConfig'
 
 export const Header: FC = () => {
 	const { t } = useTranslation()
@@ -28,13 +30,18 @@ export const Header: FC = () => {
 					<div className={css.logo}>LOGO</div>
 					<div className={css.personal}>
 						{authData.id ? (
-							<Button
-								onClick={onLogout}
-								theme={ThemeButton.CLEAR}
-								className={css.personal_btn}
-							>
-								{t('Выйти')}
-							</Button>
+							<>
+								<AppLink to={AppRoutes.PROFILE} className={css.personal_btn}>
+									{t('Профиль')}
+								</AppLink>
+								<Button
+									onClick={onLogout}
+									theme={ThemeButton.CLEAR}
+									className={css.personal_btn}
+								>
+									{t('Выйти')}
+								</Button>
+							</>
 						) : (
 							<>
 								<Button theme={ThemeButton.CLEAR} className={css.personal_btn}>
@@ -52,7 +59,7 @@ export const Header: FC = () => {
 					</div>
 				</div>
 			</Container>
-			{modalOpen && <LoginModal isOpen={modalOpen} onClose={onToggleModal} />}
+			<LoginModal isOpen={modalOpen} onClose={onToggleModal} />
 		</header>
 	)
 }

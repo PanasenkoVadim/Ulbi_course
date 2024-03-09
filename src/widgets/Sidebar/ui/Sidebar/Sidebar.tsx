@@ -4,7 +4,7 @@ import { LangSwitcher, ThemeSwitcher } from 'shared/ui/Switchers'
 import css from './Sidebar.module.scss'
 import MenuLogo from 'shared/static/images/menuBtn.svg'
 import { Button } from 'shared/ui/Button/Button'
-import { Navbar } from 'widgets/Navbar'
+import { Navbar } from '../Nav/Navbar'
 
 interface SidebarProps {
 	className?: string
