@@ -10,6 +10,7 @@ const config: Config = {
 	// A set of global variables that need to be available in all test environments
 	globals: {
 		__IS_DEV__: true,
+		__API_: '',
 	},
 
 	// Automatically clear mock calls, instances, contexts and results before every test
