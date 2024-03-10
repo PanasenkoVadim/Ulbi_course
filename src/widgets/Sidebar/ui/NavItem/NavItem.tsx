@@ -2,12 +2,13 @@ import { useTranslation } from 'react-i18next'
 import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { NavItemType } from 'widgets/Sidebar/model/items'
 import css from './NavItem.module.scss'
+import { memo } from 'react'
 
 interface NavItemProps {
 	item: NavItemType
 }
 
-const NavItem = ({ item }: NavItemProps) => {
+const NavItem = memo(({ item }: NavItemProps) => {
 	const { t } = useTranslation()
 	return (
 		<li>
@@ -17,6 +18,6 @@ const NavItem = ({ item }: NavItemProps) => {
 			</AppLink>
 		</li>
 	)
-}
+})
 
 export default NavItem

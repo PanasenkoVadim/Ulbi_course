@@ -1,16 +1,17 @@
-import { useState } from 'react'
+import { memo, useState } from 'react'
 import classNames from 'shared/lib/classNames/classNames'
-import { LangSwitcher, ThemeSwitcher } from 'shared/ui/Switchers'
-import css from './Sidebar.module.scss'
 import MenuLogo from 'shared/static/images/menuBtn.svg'
 import { Button } from 'shared/ui/Button/Button'
-import { Navbar } from '../Nav/Navbar'
+import { LangSwitcher, ThemeSwitcher } from 'shared/ui/Switchers'
+import { NavItemsList } from 'widgets/Sidebar/model/items'
+import NavItem from '../NavItem/NavItem'
+import css from './Sidebar.module.scss'
 
 interface SidebarProps {
 	className?: string
 }
 
-export const Sidebar = ({ className }: SidebarProps) => {
+export const Sidebar = memo(({ className }: SidebarProps) => {
 	const [collapsed, setCollapsed] = useState(false)
 	const onOpenClick = () => {
 		setCollapsed(!collapsed)
@@ -31,7 +32,13 @@ export const Sidebar = ({ className }: SidebarProps) => {
 				>
 					<MenuLogo />
 				</Button>
-				<Navbar />
+				<nav className={classNames(css.nav, {}, [className])}>
+					<ul>
+						{NavItemsList.map(item => (
+							<NavItem key={item.path} item={item} />
+						))}
+					</ul>
+				</nav>
 				<div className={css.switchers}>
 					<LangSwitcher />
 					<ThemeSwitcher />
@@ -39,4 +46,4 @@ export const Sidebar = ({ className }: SidebarProps) => {
 			</div>
 		</div>
 	)
-}
+})

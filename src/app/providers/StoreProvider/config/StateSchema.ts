@@ -5,6 +5,7 @@ import {
 	UnknownAction,
 	combineReducers,
 } from '@reduxjs/toolkit'
+import { ProfileSchema } from 'entities/Profile'
 import { CounterSchema } from 'entities/counter'
 import { UserSchema } from 'entities/user'
 import { LoginSchema } from 'features/AuthByUsername'
@@ -15,6 +16,7 @@ export interface StateSchema {
 
 	// Async reducers
 	loginForm?: LoginSchema
+	profile?: ProfileSchema
 }
 
 const rootReducer = combineReducers({})

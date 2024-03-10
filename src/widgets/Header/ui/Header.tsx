@@ -29,7 +29,7 @@ export const Header: FC = () => {
 				<div className={css.inner}>
 					<div className={css.logo}>LOGO</div>
 					<div className={css.personal}>
-						{authData.id ? (
+						{authData ? (
 							<>
 								<AppLink to={AppRoutes.PROFILE} className={css.personal_btn}>
 									{t('Профиль')}

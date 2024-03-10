@@ -12,6 +12,7 @@
 			"firstname": "Борис",
 			"lastname": "Бритва",
 			"age": 44,
+			"currency": "RUB",
 			"country": "Russia",
 			"city": "Moscow",
 			"username": "admin",
