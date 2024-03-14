@@ -1,15 +1,12 @@
 import { Reducer } from '@reduxjs/toolkit'
 import { ReduxStoreWithManager } from 'app/providers/StoreProvider'
 import { StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema'
-import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice'
 import { FC, ReactNode, useEffect } from 'react'
 import { useStore } from 'react-redux'
 
 export type ReducersList = {
 	[name in StateSchemaKey]?: Reducer
 }
-
-type ReducersListEntry = [StateSchemaKey, Reducer]
 
 type DynamicModuleLoaderProps = {
 	children: ReactNode
@@ -22,14 +19,14 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = props => {
 	const store = useStore() as ReduxStoreWithManager
 
 	useEffect(() => {
-		Object.entries(reducers).forEach(([name, reducer]: ReducersListEntry) => {
-			store.reducerManager.add(name, reducer)
+		Object.entries(reducers).forEach(([name, reducer]) => {
+			store.reducerManager.add(name as StateSchemaKey, reducer)
 		})
 
 		return () => {
 			if (removeAfterUnmount) {
-				Object.entries(reducers).forEach(([name]: ReducersListEntry) => {
-					store.reducerManager.remove(name)
+				Object.entries(reducers).forEach(([name]) => {
+					store.reducerManager.remove(name as StateSchemaKey)
 				})
 			}
 		}

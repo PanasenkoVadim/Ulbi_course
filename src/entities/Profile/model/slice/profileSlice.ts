@@ -11,7 +11,18 @@ const initialState: ProfileSchema = {
 const profileSlice = createSlice({
 	name: 'profile',
 	initialState,
-	reducers: {},
+	reducers: {
+		setName: (state, action: PayloadAction<string>) => {
+			if (state.data) {
+				state.data.firstname = action.payload
+			}
+		},
+		setLastname: (state, action: PayloadAction<string>) => {
+			if (state.data) {
+				state.data.lastname = action.payload
+			}
+		},
+	},
 	extraReducers: builder => {
 		builder
 			.addCase(fetchProfileData.pending, state => {

@@ -48,7 +48,7 @@ export const Modal: FC<ModalProps> = props => {
 	if (lazy && !isMounted) return
 
 	return (
-		<Portal element={document.getElementById('modal_wrapper')}>
+		<Portal element={document.getElementById('modal_wrapper') || undefined}>
 			<div
 				className={classNames(css.modal, { [css.opened]: isOpen }, [className])}
 			>
