@@ -6,7 +6,7 @@ import 'shared/config/i18n/i18n'
 import 'app/styles/index.scss'
 import { StoreProvider } from 'app/providers/StoreProvider'
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
+const root = ReactDOM.createRoot(document.getElementById('root') as Element)
 root.render(
 	<BrowserRouter>
 		<StoreProvider>

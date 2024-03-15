@@ -21,8 +21,7 @@ export interface StateSchema {
 	profile?: ProfileSchema
 }
 
-const rootReducer = combineReducers({})
-export type RootState = ReturnType<typeof rootReducer>
+export type StateSchemaKey = keyof StateSchema
 
 export interface ReducerManager {
 	getReducerMap: () => ReducersMapObject<StateSchema>
@@ -31,15 +30,13 @@ export interface ReducerManager {
 	remove: (key: StateSchemaKey) => void
 }
 
-export type StateSchemaKey = keyof StateSchema
-
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 	reducerManager: ReducerManager
 }
 
 export interface ThunkExtraArg {
 	api: AxiosInstance
-	navigate: (to: To, options?: NavigateOptions) => void
+	navigate?: (to: To, options?: NavigateOptions) => void
 }
 
 export interface ThunkConfig<T> {
