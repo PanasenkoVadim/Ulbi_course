@@ -1,14 +1,14 @@
 .profileCard {
 	padding: 40px 25px;
 	border: 1px solid var(--primary-color);
-	max-width: 60%;
-}
 
-.header {
-	margin-bottom: 40px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+	&.loading,
+	&.error {
+		min-height: 226px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 }
 
 .row {

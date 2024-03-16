@@ -1,38 +1,55 @@
-import { getProfileData } from 'entities/Profile/model/selectors/getProfileData/getProfileData'
-import { getProfileError } from 'entities/Profile/model/selectors/getProfileError/getProfileError'
-import { getProfileLoading } from 'entities/Profile/model/selectors/getProfileLoading/getProfileLoading'
-import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
-import css from './ProfileCard.module.scss'
-import classNames from 'shared/lib/classNames/classNames'
-import { Text } from 'shared/ui/Text/Text'
-import { Button, ThemeButton } from 'shared/ui/Button/Button'
-import { Input } from 'shared/ui/Input/Input'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDIspatch'
 import { profileActions } from 'entities/Profile/model/slice/profileSlice'
+import { Profile } from 'entities/Profile/model/types/profile'
+import { useTranslation } from 'react-i18next'
+import classNames from 'shared/lib/classNames/classNames'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDIspatch'
+import { Input } from 'shared/ui/Input/Input'
+import { Text, TextAligh, TextTheme } from 'shared/ui/Text/Text'
+import css from './ProfileCard.module.scss'
+import Loader from 'shared/ui/Loader/Loader'
 
 type ProfileCardProps = {
 	className?: string
+	data?: Profile
+	error?: string
+	isLoading?: boolean
+	readonly?: boolean
 }
 
-export const ProfileCard = ({ className }: ProfileCardProps) => {
+export const ProfileCard = (props: ProfileCardProps) => {
+	const { className, data, error, isLoading, readonly } = props
 	const { t } = useTranslation('profile')
-	const data = useSelector(getProfileData)
-	const error = useSelector(getProfileError)
-	const isLoading = useSelector(getProfileLoading)
 	const dispatch = useAppDispatch()
+
 	const onNameChange = (value: string) => {
 		dispatch(profileActions.setName(value))
 	}
+
 	const onLastnameChange = (value: string) => {
 		dispatch(profileActions.setLastname(value))
 	}
+	if (isLoading) {
+		return (
+			<div
+				className={classNames(css.profileCard, {}, [className, css.loading])}
+			>
+				<Loader />
+			</div>
+		)
+	}
+	if (error) {
+		return (
+			<div className={classNames(css.profileCard, {}, [className, css.error])}>
+				<Text
+					align={TextAligh.CENTER}
+					title={'Не удалось получить данные профиля'}
+					text={'Попробуйте обновить страницу'}
+				/>
+			</div>
+		)
+	}
 	return (
 		<div className={classNames(css.profileCard, {}, [className])}>
-			<div className={css.header}>
-				<Text className={css.title} title={t('Профиль')} />
-				<Button theme={ThemeButton.OUTLINE}>{t('Редактировать')}</Button>
-			</div>
 			<div className={css.data}>
 				<div className={css.row}>
 					<label htmlFor='' className={css.label}>
@@ -43,6 +60,7 @@ export const ProfileCard = ({ className }: ProfileCardProps) => {
 						value={data?.firstname}
 						placeholder={t('Имя')}
 						onChange={onNameChange}
+						disabled={readonly}
 					/>
 				</div>
 				<div className={css.row}>
@@ -54,6 +72,7 @@ export const ProfileCard = ({ className }: ProfileCardProps) => {
 						value={data?.lastname}
 						placeholder={t('Фамилия')}
 						onChange={onLastnameChange}
+						disabled={readonly}
 					/>
 				</div>
 			</div>

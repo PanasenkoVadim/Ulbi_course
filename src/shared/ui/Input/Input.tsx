@@ -4,7 +4,7 @@ import { ChangeEvent, InputHTMLAttributes, memo } from 'react'
 
 type HTMLInputProps = Omit<
 	InputHTMLAttributes<HTMLInputElement>,
-	'value' | 'onChange'
+	'value' | 'onChange' | 'readonly'
 >
 
 interface InputProps extends HTMLInputProps {
@@ -13,7 +13,15 @@ interface InputProps extends HTMLInputProps {
 	onChange?: (value: string) => void
 }
 export const Input = memo((props: InputProps) => {
-	const { className, value, onChange, type = 'text', id, ...otherProps } = props
+	const {
+		className,
+		value,
+		onChange,
+		type = 'text',
+		id,
+		disabled,
+		...otherProps
+	} = props
 
 	const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
 		onChange?.(e.target.value)
@@ -21,7 +29,13 @@ export const Input = memo((props: InputProps) => {
 
 	return (
 		<div className={classNames(css.input, {}, [className])}>
-			<input id={id} type={type} value={value} onChange={onChangeHandler} />
+			<input
+				id={id}
+				type={type}
+				value={value}
+				onChange={onChangeHandler}
+				disabled={disabled}
+			/>
 		</div>
 	)
 })
