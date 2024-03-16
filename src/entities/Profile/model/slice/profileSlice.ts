@@ -13,18 +13,11 @@ const profileSlice = createSlice({
 	name: 'profile',
 	initialState,
 	reducers: {
-		setName: (state, action: PayloadAction<string>) => {
-			if (state.data) {
-				state.data.firstname = action.payload
-			}
-		},
-		setLastname: (state, action: PayloadAction<string>) => {
-			if (state.data) {
-				state.data.lastname = action.payload
-			}
-		},
-		changeReadonly: (state, action: PayloadAction<boolean>) => {
+		setReadonly: (state, action: PayloadAction<boolean>) => {
 			state.readonly = action.payload
+		},
+		updateProfile: (state, action: PayloadAction<Profile>) => {
+			state.data = { ...state.data, ...action.payload }
 		},
 	},
 	extraReducers: builder => {

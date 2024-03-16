@@ -24,8 +24,8 @@
     }
   ],
   "profile": {
-    "firstname": "Дмитрий",
-    "lastname": "Нагиев",
+    "firstname": "Имя",
+    "lastname": "Фамилия",
     "age": 44,
     "currency": "RUB",
     "country": "Russia",

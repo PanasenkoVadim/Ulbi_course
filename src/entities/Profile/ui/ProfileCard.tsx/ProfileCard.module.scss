@@ -1,6 +1,16 @@
 .profileCard {
 	padding: 40px 25px;
-	border: 1px solid var(--primary-color);
+
+	// border: 1px solid var(--primary-color);
+	box-shadow: 0 0 2px var(--primary-color);
+	border-radius: 3px;
+
+	img {
+		box-shadow: 0 0 3px var(--primary-color);
+		width: 140px;
+		height: 140px;
+		border-radius: 50%;
+	}
 
 	&.loading,
 	&.error {

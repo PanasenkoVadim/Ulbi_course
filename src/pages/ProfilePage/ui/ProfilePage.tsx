@@ -44,16 +44,29 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 	const onSaveClick = useCallback(async () => {
 		if (data) {
 			const result = await dispatch(updateProfileData(data))
-			dispatch(profileActions.changeReadonly(true))
+			dispatch(profileActions.setReadonly(true))
 		}
 	}, [dispatch, data])
+
+	const onEditClick = useCallback(() => {
+		dispatch(profileActions.setReadonly(false))
+	}, [dispatch])
+
+	const onNameChange = (value: string) => {
+		data && dispatch(profileActions.updateProfile({ firstname: value }))
+	}
+
+	const onLastnameChange = (value: string) => {
+		data && dispatch(profileActions.updateProfile({ lastname: value }))
+	}
+
 	return (
 		<DynamicModuleLoader reducers={reducers}>
 			<div className={classNames(css.profile, {}, [className])}>
 				<ProfilePageHeader
 					isLoading={isLoading}
 					readonly={readonly}
-					onEditClick={() => dispatch(profileActions.changeReadonly(false))}
+					onEditClick={onEditClick}
 					onSaveClick={onSaveClick}
 				/>
 				<ProfileCard
@@ -61,6 +74,8 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 					data={data}
 					isLoading={isLoading}
 					error={error}
+					onNameChange={onNameChange}
+					onLastnameChange={onLastnameChange}
 				/>
 			</div>
 		</DynamicModuleLoader>

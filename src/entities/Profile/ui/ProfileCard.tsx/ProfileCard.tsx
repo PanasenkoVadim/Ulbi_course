@@ -1,12 +1,10 @@
-import { profileActions } from 'entities/Profile/model/slice/profileSlice'
 import { Profile } from 'entities/Profile/model/types/profile'
 import { useTranslation } from 'react-i18next'
 import classNames from 'shared/lib/classNames/classNames'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDIspatch'
 import { Input } from 'shared/ui/Input/Input'
-import { Text, TextAligh, TextTheme } from 'shared/ui/Text/Text'
-import css from './ProfileCard.module.scss'
 import Loader from 'shared/ui/Loader/Loader'
+import { Text, TextAligh } from 'shared/ui/Text/Text'
+import css from './ProfileCard.module.scss'
 
 type ProfileCardProps = {
 	className?: string
@@ -14,20 +12,22 @@ type ProfileCardProps = {
 	error?: string
 	isLoading?: boolean
 	readonly?: boolean
+	onNameChange: (value: string) => void
+	onLastnameChange: (value: string) => void
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
-	const { className, data, error, isLoading, readonly } = props
+	const {
+		className,
+		data,
+		error,
+		isLoading,
+		readonly,
+		onNameChange,
+		onLastnameChange,
+	} = props
 	const { t } = useTranslation('profile')
-	const dispatch = useAppDispatch()
 
-	const onNameChange = (value: string) => {
-		dispatch(profileActions.setName(value))
-	}
-
-	const onLastnameChange = (value: string) => {
-		dispatch(profileActions.setLastname(value))
-	}
 	if (isLoading) {
 		return (
 			<div
@@ -51,6 +51,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 	return (
 		<div className={classNames(css.profileCard, {}, [className])}>
 			<div className={css.data}>
+				<img src={data?.avatar} alt='' />
 				<div className={css.row}>
 					<label htmlFor='' className={css.label}>
 						{t('Имя')}
