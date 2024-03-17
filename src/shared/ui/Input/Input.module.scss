@@ -9,5 +9,10 @@
 		&:disabled {
 			color: var(--primary-color);
 		}
+
+		&::placeholder {
+			color: var(--primary-color);
+			opacity: 0.5;
+		}
 	}
 }

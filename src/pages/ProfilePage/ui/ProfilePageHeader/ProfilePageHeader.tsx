@@ -9,6 +9,7 @@ type ProfilePageHeaderProps = {
 	readonly?: boolean
 	isLoading?: boolean
 	onEditClick?: () => void
+	onCancelEdit?: () => void
 	onSaveClick?: () => void
 }
 
@@ -16,6 +17,7 @@ const ProfilePageHeader = ({
 	className,
 	readonly = true,
 	onEditClick,
+	onCancelEdit,
 	onSaveClick,
 	isLoading,
 }: ProfilePageHeaderProps) => {
@@ -23,19 +25,30 @@ const ProfilePageHeader = ({
 	return (
 		<div className={classNames(css.header, {}, [className])}>
 			<Text className={css.title} title={t('Профиль')} />
-			{readonly ? (
-				<Button theme={ThemeButton.OUTLINE} onClick={onEditClick}>
-					{t('Редактировать')}
-				</Button>
-			) : (
-				<Button
-					disabled={isLoading}
-					theme={ThemeButton.OUTLINE}
-					onClick={onSaveClick}
-				>
-					{t('Сохранить')}
-				</Button>
-			)}
+			<div className={css.actions}>
+				{readonly ? (
+					<Button theme={ThemeButton.OUTLINE} onClick={onEditClick}>
+						{t('Редактировать')}
+					</Button>
+				) : (
+					<>
+						<Button
+							disabled={isLoading}
+							theme={ThemeButton.OUTLINE_ACCENT}
+							onClick={onCancelEdit}
+						>
+							{t('Отменить')}
+						</Button>
+						<Button
+							disabled={isLoading}
+							theme={ThemeButton.OUTLINE}
+							onClick={onSaveClick}
+						>
+							{t('Сохранить')}
+						</Button>
+					</>
+				)}
+			</div>
 		</div>
 	)
 }

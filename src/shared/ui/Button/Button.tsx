@@ -5,6 +5,7 @@ import css from './Button.module.scss'
 export enum ThemeButton {
 	CLEAR = 'clear',
 	OUTLINE = 'outline',
+	OUTLINE_ACCENT = 'outline_accent',
 	BACKGROUND = 'background',
 	BACKGROUND_INVERTED = 'backgroundInverted',
 }

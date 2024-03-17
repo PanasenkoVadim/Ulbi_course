@@ -1,6 +1,7 @@
 import { Profile } from 'entities/Profile/model/types/profile'
 import { useTranslation } from 'react-i18next'
 import classNames from 'shared/lib/classNames/classNames'
+import Avatar from 'shared/ui/Avatar/Avatar'
 import { Input } from 'shared/ui/Input/Input'
 import Loader from 'shared/ui/Loader/Loader'
 import { Text, TextAligh } from 'shared/ui/Text/Text'
@@ -8,23 +9,29 @@ import css from './ProfileCard.module.scss'
 
 type ProfileCardProps = {
 	className?: string
-	data?: Profile
+	formData?: Profile
 	error?: string
 	isLoading?: boolean
 	readonly?: boolean
 	onNameChange: (value: string) => void
 	onLastnameChange: (value: string) => void
+	onAgeChange: (value: string) => void
+	onCityChange: (value: string) => void
+	onAvatarChange: (value: string) => void
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
 	const {
 		className,
-		data,
+		formData,
 		error,
 		isLoading,
 		readonly,
 		onNameChange,
 		onLastnameChange,
+		onAgeChange,
+		onCityChange,
+		onAvatarChange,
 	} = props
 	const { t } = useTranslation('profile')
 
@@ -49,30 +56,79 @@ export const ProfileCard = (props: ProfileCardProps) => {
 		)
 	}
 	return (
-		<div className={classNames(css.profileCard, {}, [className])}>
-			<div className={css.data}>
-				<img src={data?.avatar} alt='' />
-				<div className={css.row}>
+		<div
+			className={classNames(css.profileCard, { [css.editing]: !readonly }, [
+				className,
+			])}
+		>
+			<div className={css.avatarWrapper}>
+				<Avatar
+					src={
+						formData?.avatar ||
+						'https://t4.ftcdn.net/jpg/03/59/58/91/360_F_359589186_JDLl8dIWoBNf1iqEkHxhUeeOulx0wOC5.jpg'
+					}
+				/>
+			</div>
+
+			<div className={css.formData}>
+				<div className={css.field}>
 					<label htmlFor='' className={css.label}>
-						{t('Имя')}
+						{t('Имя') + ':'}
 					</label>
 					<Input
 						className={css.input}
-						value={data?.firstname}
-						placeholder={t('Имя')}
+						value={formData?.firstname}
+						placeholder={t('Введите ваще имя')}
 						onChange={onNameChange}
 						disabled={readonly}
 					/>
 				</div>
-				<div className={css.row}>
+				<div className={css.field}>
 					<label htmlFor='' className={css.label}>
-						{t('Фамилия')}
+						{t('Возраст') + ':'}
 					</label>
 					<Input
 						className={css.input}
-						value={data?.lastname}
-						placeholder={t('Фамилия')}
+						value={formData?.age}
+						type='number'
+						placeholder={t('Укажите свей возраст')}
+						onChange={onAgeChange}
+						disabled={readonly}
+					/>
+				</div>
+				<div className={css.field}>
+					<label htmlFor='' className={css.label}>
+						{t('Фамилия') + ':'}
+					</label>
+					<Input
+						className={css.input}
+						value={formData?.lastname}
+						placeholder={t('Введите вашу фамилию')}
 						onChange={onLastnameChange}
+						disabled={readonly}
+					/>
+				</div>
+				<div className={css.field}>
+					<label htmlFor='' className={css.label}>
+						{t('Город') + ':'}
+					</label>
+					<Input
+						className={css.input}
+						value={formData?.city}
+						placeholder={t('Укажите город проживания')}
+						onChange={onCityChange}
+						disabled={readonly}
+					/>
+				</div>
+				<div className={classNames(css.field, {}, [css.field_avatar])}>
+					<label htmlFor='' className={css.label}>
+						{t('Аватар') + ':'}
+					</label>
+					<Input
+						className={css.input}
+						value={formData?.avatar}
+						placeholder={t('Ссылка на аватар')}
+						onChange={onAvatarChange}
 						disabled={readonly}
 					/>
 				</div>

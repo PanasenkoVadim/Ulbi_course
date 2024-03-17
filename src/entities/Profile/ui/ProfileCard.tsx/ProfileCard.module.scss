@@ -1,32 +1,30 @@
 .profileCard {
 	padding: 40px 25px;
-
-	// border: 1px solid var(--primary-color);
 	box-shadow: 0 0 2px var(--primary-color);
 	border-radius: 3px;
-
-	img {
-		box-shadow: 0 0 3px var(--primary-color);
-		width: 140px;
-		height: 140px;
-		border-radius: 50%;
-	}
+	border: 1px solid transparent;
+	transition: border 0.2s ease;
 
 	&.loading,
 	&.error {
-		min-height: 226px;
+		min-height: 355px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 	}
-}
 
-.row {
-	&:not(:last-child) {
-		margin-bottom: 16px;
+	&.editing {
+		border: 1px solid var(--primary-color);
 	}
 }
 
-.input {
-	max-width: 400px;
+.formData {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px 60px;
+	padding-top: 20px;
+}
+
+.field_avatar {
+	grid-column: 1/3;
 }

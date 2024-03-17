@@ -5,6 +5,7 @@ import { updateProfileData } from '../services/updateProfileData/updateProfileDa
 
 const initialState: ProfileSchema = {
 	data: undefined,
+	formData: undefined,
 	isLoading: false,
 	error: undefined,
 	readonly: true,
@@ -16,8 +17,12 @@ const profileSlice = createSlice({
 		setReadonly: (state, action: PayloadAction<boolean>) => {
 			state.readonly = action.payload
 		},
+		cancelEdit: state => {
+			state.readonly = true
+			state.formData = state.data
+		},
 		updateProfile: (state, action: PayloadAction<Profile>) => {
-			state.data = { ...state.data, ...action.payload }
+			state.formData = { ...state.formData, ...action.payload }
 		},
 	},
 	extraReducers: builder => {
@@ -31,6 +36,7 @@ const profileSlice = createSlice({
 				(state, action: PayloadAction<Profile>) => {
 					state.isLoading = false
 					state.data = action.payload
+					state.formData = action.payload
 				}
 			)
 			.addCase(fetchProfileData.rejected, (state, action) => {
@@ -41,9 +47,14 @@ const profileSlice = createSlice({
 				state.error = undefined
 				state.isLoading = true
 			})
-			.addCase(updateProfileData.fulfilled, state => {
-				state.isLoading = false
-			})
+			.addCase(
+				updateProfileData.fulfilled,
+				(state, action: PayloadAction<Profile>) => {
+					state.isLoading = false
+					state.data = action.payload
+					state.formData = action.payload
+				}
+			)
 			.addCase(updateProfileData.rejected, (state, action) => {
 				state.isLoading = false
 				state.error = action.payload

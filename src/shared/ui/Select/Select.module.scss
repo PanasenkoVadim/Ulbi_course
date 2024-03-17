@@ -1,0 +1,129 @@
+.select {
+	display: inline-block;
+	user-select: none;
+	position: relative;
+	width: 500px;
+	margin-bottom: 10px;
+
+	input {
+		display: none;
+	}
+}
+
+.select_button {
+	display: inline-flex;
+	align-items: center;
+	position: relative;
+	border: 1px solid #252525;
+	border-radius: 4px;
+	cursor: pointer;
+	height: 42px;
+	width: 100%;
+	padding: 0 42px 0 12px;
+	background-color: #fff;
+	z-index: 5;
+}
+
+.select.opened .select_button {
+	box-shadow: 0 0 20px 5px #400769;
+}
+
+.select_button::after {
+	position: absolute;
+	right: 16px;
+	top: 50%;
+	transform: translateY(-50%);
+	border-color: #38383888 transparent transparent;
+	display: inline-block;
+	content: '';
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 6px 6px 0;
+	transform-origin: top;
+	transition: transform 0.3s ease;
+	pointer-events: none;
+}
+
+.bitrix24-dark-theme .select_button::after {
+	border-color: #000 transparent transparent;
+}
+
+.select_popup {
+	/* display: none; */
+	visibility: hidden;
+	transform: translateY(-10%);
+	opacity: 0;
+	transition: 0.2s;
+	position: absolute;
+	top: 53px;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+	background-color: #fff;
+	color: #000;
+	border-radius: 4px;
+	box-shadow: 0 7px 21px rgb(83 92 105 / 12%), 0 -1px 6px 0 rgb(83 92 105 / 6%);
+}
+
+.select_list {
+	overflow: hidden;
+	border-radius: 4px;
+}
+
+.select.opened .select_popup {
+	visibility: visible;
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.select.opened .select_button::after {
+	transform: rotate(180deg);
+}
+
+.select_list_angly {
+	display: block;
+	position: absolute;
+	right: 10px;
+	top: -12px;
+	width: 26px;
+	height: 12px;
+	pointer-events: none;
+	overflow: hidden;
+	transform: rotate(180deg);
+}
+
+.select_list_angly::after {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 5px;
+	bottom: 5px;
+	background-color: #fff;
+	box-shadow: 0 0 21px rgb(83 92 105 / 13%);
+	height: 15px;
+	transform: rotate(45deg);
+	transform-origin: 50% 50%;
+	width: 15px;
+}
+
+.select_item {
+	padding: 10px 12px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.select_item:hover {
+	// background-color: #f2f2f2;
+	background: linear-gradient(101deg, #dfdfdf 0%, #f2f2f270 100%);
+}
+
+.select_item.selected {
+	/* background: rgb(135,169,247); */
+	background: linear-gradient(101deg, #400769 0%, #8e51c7a7 100%);
+	color: #fff;
+}
+
+.select_item:not(:last-child) {
+	border-bottom: 1px solid #dcdcdc;
+}

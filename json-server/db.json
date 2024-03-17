@@ -24,14 +24,14 @@
     }
   ],
   "profile": {
-    "firstname": "Имя",
+    "firstname": "admin",
     "lastname": "Фамилия",
-    "age": 44,
+    "age": 23,
     "currency": "RUB",
     "country": "Russia",
-    "city": "Moscow",
+    "city": "Tver",
     "username": "admin",
-    "avatar": "https://fanfics.me/images/fandoms_heroes/521-1472067958.jpg"
+    "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu0xOlgRPBlASnuPj0zyXsQ_8bPoXDh-3Eflnz5pHl2T2KUcMttAifJfx30BEScD6bb_c&usqp=CAU"
   },
   "users": [
     {

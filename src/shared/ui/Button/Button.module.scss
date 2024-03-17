@@ -23,6 +23,11 @@
 	background: none;
 }
 
+.outline_accent {
+	border: 1px solid var(--secondary-color);
+	color: var(--secondary-color);
+}
+
 .background {
 	background: var(--button-bg);
 	color: var(--primary-color);

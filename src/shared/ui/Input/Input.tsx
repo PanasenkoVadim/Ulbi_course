@@ -4,18 +4,20 @@ import { ChangeEvent, InputHTMLAttributes, memo } from 'react'
 
 type HTMLInputProps = Omit<
 	InputHTMLAttributes<HTMLInputElement>,
-	'value' | 'onChange' | 'readonly'
+	'value' | 'onChange' | 'readonly' | 'placeholder'
 >
 
 interface InputProps extends HTMLInputProps {
 	className?: string
-	value?: string
+	value?: string | number
+	placeholder?: string
 	onChange?: (value: string) => void
 }
 export const Input = memo((props: InputProps) => {
 	const {
 		className,
 		value,
+		placeholder,
 		onChange,
 		type = 'text',
 		id,
@@ -32,6 +34,7 @@ export const Input = memo((props: InputProps) => {
 			<input
 				id={id}
 				type={type}
+				placeholder={placeholder}
 				value={value}
 				onChange={onChangeHandler}
 				disabled={disabled}

@@ -1,8 +1,8 @@
 import {
 	ProfileCard,
 	fetchProfileData,
-	getProfileData,
 	getProfileError,
+	getProfileFormData,
 	getProfileLoading,
 	getProfileReadonly,
 	profileActions,
@@ -32,7 +32,7 @@ type ProfilePageProps = {
 const ProfilePage = ({ className }: ProfilePageProps) => {
 	const { t } = useTranslation()
 	const dispatch = useAppDispatch()
-	const data = useSelector(getProfileData)
+	const formData = useSelector(getProfileFormData)
 	const error = useSelector(getProfileError)
 	const isLoading = useSelector(getProfileLoading)
 	const readonly = useSelector(getProfileReadonly)
@@ -41,23 +41,37 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 		dispatch(fetchProfileData())
 	}, [dispatch])
 
-	const onSaveClick = useCallback(async () => {
-		if (data) {
-			const result = await dispatch(updateProfileData(data))
-			dispatch(profileActions.setReadonly(true))
-		}
-	}, [dispatch, data])
-
 	const onEditClick = useCallback(() => {
 		dispatch(profileActions.setReadonly(false))
 	}, [dispatch])
 
-	const onNameChange = (value: string) => {
-		data && dispatch(profileActions.updateProfile({ firstname: value }))
-	}
+	const onCancelEdit = useCallback(() => {
+		dispatch(profileActions.cancelEdit())
+	}, [dispatch])
 
-	const onLastnameChange = (value: string) => {
-		data && dispatch(profileActions.updateProfile({ lastname: value }))
+	const onSaveClick = useCallback(async () => {
+		if (formData) {
+			const result = await dispatch(updateProfileData())
+			if (result.meta.requestStatus === 'fulfilled') {
+				dispatch(profileActions.setReadonly(true))
+			}
+		}
+	}, [dispatch, formData])
+
+	const onNameChange = (value: string) => {
+		formData && dispatch(profileActions.updateProfile({ firstname: value }))
+	}
+	const onLastnameChange = (value?: string) => {
+		formData && dispatch(profileActions.updateProfile({ lastname: value }))
+	}
+	const onAgeChange = (value?: string) => {
+		formData && dispatch(profileActions.updateProfile({ age: Number(value) }))
+	}
+	const onCityChange = (value?: string) => {
+		formData && dispatch(profileActions.updateProfile({ city: value }))
+	}
+	const onAvatarChange = (value?: string) => {
+		formData && dispatch(profileActions.updateProfile({ avatar: value }))
 	}
 
 	return (
@@ -67,15 +81,19 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 					isLoading={isLoading}
 					readonly={readonly}
 					onEditClick={onEditClick}
+					onCancelEdit={onCancelEdit}
 					onSaveClick={onSaveClick}
 				/>
 				<ProfileCard
 					readonly={readonly}
-					data={data}
+					formData={formData}
 					isLoading={isLoading}
 					error={error}
 					onNameChange={onNameChange}
 					onLastnameChange={onLastnameChange}
+					onAgeChange={onAgeChange}
+					onCityChange={onCityChange}
+					onAvatarChange={onAvatarChange}
 				/>
 			</div>
 		</DynamicModuleLoader>

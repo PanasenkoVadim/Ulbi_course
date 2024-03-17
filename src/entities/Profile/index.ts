@@ -1,4 +1,4 @@
-export { getProfileData } from './model/selectors/getProfileData/getProfileData'
+export { getProfileFormData } from './model/selectors/getProfileFormData/getProfileFormData'
 export { getProfileError } from './model/selectors/getProfileError/getProfileError'
 export { getProfileLoading } from './model/selectors/getProfileLoading/getProfileLoading'
 export { getProfileReadonly } from './model/selectors/getProfileReadonly/getProfileReadonly'
