@@ -6,6 +6,10 @@ import { Input } from 'shared/ui/Input/Input'
 import Loader from 'shared/ui/Loader/Loader'
 import { Text, TextAligh } from 'shared/ui/Text/Text'
 import css from './ProfileCard.module.scss'
+import Select from 'shared/ui/Select/Select'
+import { Currency } from 'entities/Currency'
+import { CurrencySelect } from 'entities/Currency'
+import { Country, CountrySelect } from 'entities/Country'
 
 type ProfileCardProps = {
 	className?: string
@@ -17,6 +21,8 @@ type ProfileCardProps = {
 	onLastnameChange: (value: string) => void
 	onAgeChange: (value: string) => void
 	onCityChange: (value: string) => void
+	onCountryChange: (value: Country) => void
+	onCurrencyChange: (value: Currency) => void
 	onAvatarChange: (value: string) => void
 }
 
@@ -31,6 +37,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
 		onLastnameChange,
 		onAgeChange,
 		onCityChange,
+		onCountryChange,
+		onCurrencyChange,
 		onAvatarChange,
 	} = props
 	const { t } = useTranslation('profile')
@@ -83,6 +91,43 @@ export const ProfileCard = (props: ProfileCardProps) => {
 						disabled={readonly}
 					/>
 				</div>
+
+				<div className={css.field}>
+					<label htmlFor='' className={css.label}>
+						{t('Страна') + ':'}
+					</label>
+					<CountrySelect
+						onChange={onCountryChange}
+						readonly={readonly}
+						value={formData?.country}
+					/>
+				</div>
+
+				<div className={css.field}>
+					<label htmlFor='' className={css.label}>
+						{t('Фамилия') + ':'}
+					</label>
+					<Input
+						className={css.input}
+						value={formData?.lastname}
+						placeholder={t('Введите вашу фамилию')}
+						onChange={onLastnameChange}
+						disabled={readonly}
+					/>
+				</div>
+
+				<div className={css.field}>
+					<label htmlFor='' className={css.label}>
+						{t('Город') + ':'}
+					</label>
+					<Input
+						className={css.input}
+						value={formData?.city}
+						placeholder={t('Укажите город проживания')}
+						onChange={onCityChange}
+						disabled={readonly}
+					/>
+				</div>
 				<div className={css.field}>
 					<label htmlFor='' className={css.label}>
 						{t('Возраст') + ':'}
@@ -98,26 +143,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
 				</div>
 				<div className={css.field}>
 					<label htmlFor='' className={css.label}>
-						{t('Фамилия') + ':'}
+						{t('Валюта') + ':'}
 					</label>
-					<Input
-						className={css.input}
-						value={formData?.lastname}
-						placeholder={t('Введите вашу фамилию')}
-						onChange={onLastnameChange}
-						disabled={readonly}
-					/>
-				</div>
-				<div className={css.field}>
-					<label htmlFor='' className={css.label}>
-						{t('Город') + ':'}
-					</label>
-					<Input
-						className={css.input}
-						value={formData?.city}
-						placeholder={t('Укажите город проживания')}
-						onChange={onCityChange}
-						disabled={readonly}
+					<CurrencySelect
+						onChange={onCurrencyChange}
+						readonly={readonly}
+						value={formData?.currency}
 					/>
 				</div>
 				<div className={classNames(css.field, {}, [css.field_avatar])}>

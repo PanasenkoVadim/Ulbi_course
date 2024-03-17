@@ -4,11 +4,6 @@ import i18n from 'shared/config/i18n/i18n'
 import { Profile } from '../../types/profile'
 import { getProfileFormData } from '../../selectors/getProfileFormData/getProfileFormData'
 
-interface UpdateProfileDataProps {
-	username: string
-	password: string
-}
-
 export const updateProfileData = createAsyncThunk<
 	Profile,
 	void,

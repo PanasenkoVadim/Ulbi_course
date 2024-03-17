@@ -3,25 +3,37 @@ import classNames from 'shared/lib/classNames/classNames'
 import { Button, ThemeButton } from 'shared/ui/Button/Button'
 import { Text } from 'shared/ui/Text/Text'
 import css from './ProfilePageHeader.module.scss'
+import { useCallback } from 'react'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDIspatch'
+import { profileActions } from 'entities/Profile'
+import { updateProfileData } from 'entities/Profile/model/services/updateProfileData/updateProfileData'
 
 type ProfilePageHeaderProps = {
 	className?: string
 	readonly?: boolean
 	isLoading?: boolean
-	onEditClick?: () => void
-	onCancelEdit?: () => void
-	onSaveClick?: () => void
 }
 
 const ProfilePageHeader = ({
 	className,
 	readonly = true,
-	onEditClick,
-	onCancelEdit,
-	onSaveClick,
 	isLoading,
 }: ProfilePageHeaderProps) => {
 	const { t } = useTranslation()
+	const dispatch = useAppDispatch()
+
+	const onEditClick = useCallback(() => {
+		dispatch(profileActions.setReadonly(false))
+	}, [dispatch])
+
+	const onCancelEdit = useCallback(() => {
+		dispatch(profileActions.cancelEdit())
+	}, [dispatch])
+
+	const onSaveClick = useCallback(() => {
+		dispatch(updateProfileData())
+	}, [dispatch])
+
 	return (
 		<div className={classNames(css.header, {}, [className])}>
 			<Text className={css.title} title={t('Профиль')} />

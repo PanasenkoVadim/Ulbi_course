@@ -1,4 +1,4 @@
-import { getUserAuthData, userActions } from 'entities/user'
+import { userActions, getUserAuthData } from 'entities/user'
 import { LoginModal } from 'features/AuthByUsername'
 import { useCallback, useState, type FC } from 'react'
 import { useTranslation } from 'react-i18next'
