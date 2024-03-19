@@ -7,6 +7,7 @@ import {
 	getProfileFormData,
 	getProfileLoading,
 	getProfileReadonly,
+	getProfileValidateErrors,
 	profileActions,
 	profileReducer,
 } from 'entities/Profile'
@@ -21,6 +22,8 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDIspatch'
 import css from './ProfilePage.module.scss'
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader'
+import { Text, TextTheme } from 'shared/ui/Text/Text'
+import { validateErrorText } from 'entities/Profile/model/services/validateProfileData/validateProfileData'
 
 const reducers: ReducersList = {
 	profile: profileReducer,
@@ -37,21 +40,25 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 	const error = useSelector(getProfileError)
 	const isLoading = useSelector(getProfileLoading)
 	const readonly = useSelector(getProfileReadonly)
+	const validateErrors = useSelector(getProfileValidateErrors)
 
 	useEffect(() => {
 		dispatch(fetchProfileData())
 	}, [dispatch])
 
 	const onNameChange = (value: string) => {
+		value = value?.replace(/[^а-яa-zё -]/gi, '')
 		formData && dispatch(profileActions.updateProfile({ firstname: value }))
 	}
 	const onLastnameChange = (value?: string) => {
 		formData && dispatch(profileActions.updateProfile({ lastname: value }))
 	}
 	const onAgeChange = (value?: string) => {
+		value = value?.replace(/[\D]/gi, '')
 		formData && dispatch(profileActions.updateProfile({ age: Number(value) }))
 	}
 	const onCityChange = (value?: string) => {
+		value = value?.replace(/[^а-яa-zё -]/gi, '')
 		formData && dispatch(profileActions.updateProfile({ city: value }))
 	}
 	const onCountryChange = (value?: Country) => {
@@ -81,6 +88,14 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 					onCurrencyChange={onCurrencyChange}
 					onAvatarChange={onAvatarChange}
 				/>
+				{validateErrors?.length &&
+					validateErrors.map(error => (
+						<Text
+							key={error}
+							theme={TextTheme.ERROR}
+							text={validateErrorText[error]}
+						/>
+					))}
 			</div>
 		</DynamicModuleLoader>
 	)

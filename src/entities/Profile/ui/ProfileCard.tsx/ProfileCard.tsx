@@ -135,7 +135,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 					<Input
 						className={css.input}
 						value={formData?.age}
-						type='number'
+						// type='number'
 						placeholder={t('Укажите свей возраст')}
 						onChange={onAgeChange}
 						disabled={readonly}
