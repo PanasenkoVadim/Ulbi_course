@@ -1,5 +1,6 @@
 import HTMLWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import webpack from 'webpack'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import { type BuildOptions } from './types/config'
@@ -30,6 +31,7 @@ export function buildPlugins({
 			})
 		)
 		plugins.push(new webpack.HotModuleReplacementPlugin())
+		plugins.push(new ReactRefreshWebpackPlugin())
 	}
-	return plugins
+	return plugins.filter(Boolean)
 }
