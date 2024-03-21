@@ -4,15 +4,16 @@ import { Header } from 'widgets/Header'
 import { Sidebar } from 'widgets/Sidebar'
 import classNames from 'shared/lib/classNames/classNames'
 import { useTheme } from './providers/ThemeProvider'
-import Router from './providers/router'
 import './styles/index.scss'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDIspatch'
-import { userActions } from 'entities/user'
+import { getUserAuthDataInited, userActions } from 'entities/user'
+import { AppRouter } from './providers/router'
+import { useSelector } from 'react-redux'
 
 export default function App() {
 	const { theme } = useTheme()
 	const dispatch = useAppDispatch()
-
+	const inited = useSelector(getUserAuthDataInited)
 	useEffect(() => {
 		dispatch(userActions.initAuthData())
 	}, [dispatch])
@@ -23,7 +24,7 @@ export default function App() {
 				<Header />
 				<div className='wrapper'>
 					<Sidebar />
-					<Router />
+					{inited && <AppRouter />}
 				</div>
 				<Footer />
 			</Suspense>

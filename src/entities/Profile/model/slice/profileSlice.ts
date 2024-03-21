@@ -5,7 +5,6 @@ import { updateProfileData } from '../services/updateProfileData/updateProfileDa
 
 const initialState: ProfileSchema = {
 	data: undefined,
-	formData: undefined,
 	isLoading: false,
 	error: undefined,
 	readonly: true,
