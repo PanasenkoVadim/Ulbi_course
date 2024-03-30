@@ -1,0 +1,11 @@
+// .content {
+// }
+
+.skeleton {
+	display: grid;
+	gap: 20px;
+
+	div:first-child {
+		justify-self: center;
+	}
+}

@@ -19,8 +19,13 @@ export const NavItemsList: NavItemType[] = [
 	},
 	{
 		path: RoutePath.about,
-		text: 'О нас',
+		text: 'О проекте',
 		Icon: AboutLogo,
+	},
+	{
+		path: RoutePath.articles,
+		text: 'Статьи',
+		Icon: CatalogLogo,
 	},
 	{
 		path: RoutePath.catalog,
