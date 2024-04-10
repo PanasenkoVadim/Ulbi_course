@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import { memo } from 'react'
 import classNames from 'shared/lib/classNames/classNames'
 import css from './Text.module.scss'
 
@@ -12,6 +12,10 @@ export enum TextAligh {
 	CENTER = 'center',
 	RIGHT = 'right',
 }
+export enum TextSize {
+	M = 'size_m',
+	L = 'size_l',
+}
 
 interface TextProps {
 	className?: string
@@ -19,6 +23,7 @@ interface TextProps {
 	text?: string
 	theme?: TextTheme
 	align?: TextAligh
+	size?: TextSize
 }
 
 export const Text = memo((props: TextProps) => {
@@ -28,16 +33,18 @@ export const Text = memo((props: TextProps) => {
 		text,
 		theme = TextTheme.DEFAULT,
 		align = TextAligh.LEFT,
+		size = TextSize.M,
 	} = props
 
+	const mods: Array<string | undefined> = [
+		className,
+		css[theme],
+		css[align],
+		css[size],
+	]
+
 	return (
-		<div
-			className={classNames(css.wrapper, {}, [
-				className,
-				css[theme],
-				css[align],
-			])}
-		>
+		<div className={classNames(css.wrapper, {}, mods)}>
 			{title && <p className={css.title}>{title}</p>}
 			{text && <p className={css.text}>{text}</p>}
 		</div>

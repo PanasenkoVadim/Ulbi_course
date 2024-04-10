@@ -1,4 +1,4 @@
-type Mods = Record<string, boolean | string | undefined>
+export type Mods = Record<string, boolean | string | undefined>
 
 export default function classNames(
 	cls: string,

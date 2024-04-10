@@ -16,13 +16,22 @@
 	}
 }
 
-.title {
-	font: var(--font-l);
-	font-weight: 700;
-	color: var(--primary-color);
+.size_m {
+	.title {
+		font: bold var(--font-l);
+	}
+
+	.text {
+		font: var(--font-m);
+	}
 }
 
-.text {
-	font: var(--font-m);
-	color: var(--secondary-color);
+.size_l {
+	.title {
+		font: bold var(--font-xl);
+	}
+
+	.text {
+		font: var(--font-l);
+	}
 }

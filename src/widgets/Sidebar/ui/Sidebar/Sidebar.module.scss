@@ -4,6 +4,7 @@
 	transition: width 0.3s ease-out;
 	position: relative;
 	box-shadow: var(--right-shadow);
+	flex: 0 0 auto;
 
 	&.collapsed {
 		width: 200px;

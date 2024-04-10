@@ -1,3 +1,8 @@
+export { articlesReducer } from './model/slice/articlesSlice'
+
 export type { Article } from './model/types/article'
-export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema'
+export type {
+	ArticleDetailsSchema,
+	ArticlesSchema,
+} from './model/types/articleDetailsSchema'
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails'

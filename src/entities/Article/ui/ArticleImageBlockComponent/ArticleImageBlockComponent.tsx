@@ -1,17 +1,20 @@
+import { ArticleImageBlock } from '../../model/types/article'
 import { useTranslation } from 'react-i18next'
 import classNames from 'shared/lib/classNames/classNames'
-
+import css from './ArticleImageBlockComponent.module.scss'
 type ArticleImageBlockComponentProps = {
 	className?: string
+	block: ArticleImageBlock
 }
 
 const ArticleImageBlockComponent = (props: ArticleImageBlockComponentProps) => {
-	const { className } = props
+	const { className, block } = props
 	const { t } = useTranslation()
 	return (
-		<div className={classNames('test', {}, [className])}>
-			{t('ArticleImageBlockComponent ')}
-		</div>
+		<figure className={classNames(css.figure, {}, [className])}>
+			<img src={block.src} alt={block.title} />
+			{block.title && <figcaption>{block.title}</figcaption>}
+		</figure>
 	)
 }
 

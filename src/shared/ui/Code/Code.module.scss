@@ -1,0 +1,21 @@
+.code {
+	border: 1px solid var(--primary-color);
+	padding: 20px;
+	position: relative;
+	background-color: var(--inverted-bg-color);
+}
+
+.copyBtn {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+
+	svg path {
+		stroke: var(--primary-color);
+		transition: 0.3s;
+	}
+
+	&:hover {
+		stroke-opacity: 0.8;
+	}
+}
