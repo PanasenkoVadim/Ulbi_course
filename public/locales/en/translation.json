@@ -15,5 +15,6 @@
 	"Неверный логин или пароль": "Incorrect login or password",
 	"Зарегистрироваться": "SignUp",
 	"Выйти": "LogOut",
-	"Профиль": "Profile"
+	"Профиль": "Profile",
+	"Комментарии": "Comments"
 }
