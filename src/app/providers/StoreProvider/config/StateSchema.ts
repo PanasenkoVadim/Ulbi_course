@@ -23,7 +23,7 @@ export interface StateSchema {
 	profile?: ProfileSchema
 	articles?: ArticlesSchema
 	articleDetails?: ArticleDetailsSchema
-	ArticleDetailsComments?: ArticleDetailsCommentsSchema
+	articleDetailsComments?: ArticleDetailsCommentsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

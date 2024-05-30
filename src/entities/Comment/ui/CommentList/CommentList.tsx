@@ -14,15 +14,15 @@ interface CommentListProps {
 }
 
 export const CommentList = memo((props: CommentListProps) => {
-  const { className, comments } = props;
+  const { className, comments, isLoading } = props;
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
 
   return (
     <div className={classNames(css.commentList, {}, [className])}>
       {comments?.length ? (
-        comments.map((comment) => (
-          <CommentCard isLoading={true} className={css.comment} key={comment.id} comment={comment} />
+        comments.map((comment, key) => (
+          <CommentCard className={css.comment} key={key} comment={comment} isLoading={isLoading} />
         ))
       ) : (
         <Text text={t("Комментарии отсутствуют")} />
