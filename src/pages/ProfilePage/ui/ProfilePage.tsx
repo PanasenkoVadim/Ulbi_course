@@ -24,6 +24,7 @@ import css from './ProfilePage.module.scss'
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { validateErrorText } from 'entities/Profile/model/services/validateProfileData/validateProfileData'
+import { useParams } from 'react-router-dom'
 
 const reducers: ReducersList = {
 	profile: profileReducer,
@@ -41,10 +42,13 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 	const isLoading = useSelector(getProfileLoading)
 	const readonly = useSelector(getProfileReadonly)
 	const validateErrors = useSelector(getProfileValidateErrors)
+	const { id } = useParams()
 
 	useEffect(() => {
-		dispatch(fetchProfileData())
-	}, [dispatch])
+		if (id) {
+			dispatch(fetchProfileData(id))
+		}
+	}, [dispatch, id])
 
 	const onNameChange = (value: string) => {
 		value = value?.replace(/[^а-яa-zё -]/gi, '')
@@ -74,7 +78,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 	return (
 		<DynamicModuleLoader reducers={reducers}>
 			<div className={classNames(css.profile, {}, [className])}>
-				<ProfilePageHeader isLoading={isLoading} readonly={readonly} />
+				<ProfilePageHeader isLoading={isLoading} readonly={readonly} profileId={id} />
 				<ProfileCard
 					readonly={readonly}
 					formData={formData}

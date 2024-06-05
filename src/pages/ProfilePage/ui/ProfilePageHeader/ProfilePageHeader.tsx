@@ -9,6 +9,7 @@ import { profileActions } from 'entities/Profile'
 import { updateProfileData } from 'entities/Profile/model/services/updateProfileData/updateProfileData'
 
 type ProfilePageHeaderProps = {
+	profileId?: string
 	className?: string
 	readonly?: boolean
 	isLoading?: boolean
@@ -18,6 +19,7 @@ const ProfilePageHeader = ({
 	className,
 	readonly = true,
 	isLoading,
+	profileId,
 }: ProfilePageHeaderProps) => {
 	const { t } = useTranslation()
 	const dispatch = useAppDispatch()
@@ -31,8 +33,10 @@ const ProfilePageHeader = ({
 	}, [dispatch])
 
 	const onSaveClick = useCallback(() => {
-		dispatch(updateProfileData())
-	}, [dispatch])
+		if (profileId) {
+			dispatch(updateProfileData(profileId))
+		}
+	}, [dispatch, profileId])
 
 	return (
 		<div className={classNames(css.header, {}, [className])}>

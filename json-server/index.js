@@ -26,12 +26,12 @@ server.post('/login', (req, res) => {
 		)
 		const { users = [] } = db
 
-		const userFromBd = users.find(
+		const userFromDb = users.find(
 			user => user.username === username && user.password === password
 		)
 
-		if (userFromBd) {
-			return res.json(userFromBd)
+		if (userFromDb) {
+			return res.json(userFromDb)
 		}
 
 		return res.status(403).json({ message: 'User not found' })

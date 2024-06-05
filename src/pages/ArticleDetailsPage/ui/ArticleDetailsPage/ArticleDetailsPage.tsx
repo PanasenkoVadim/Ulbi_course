@@ -34,7 +34,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 	const comments = useSelector(getArticleComments.selectAll)
 	const commentsIsLoading = useSelector(getArticleCommentsIsLoading)
 	const dispatch = useAppDispatch()
-
 	useEffect(() => {
 		dispatch(fetchCommentsByArticleId(id))
 	}, [dispatch, id])

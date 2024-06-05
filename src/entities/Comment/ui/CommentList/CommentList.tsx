@@ -15,7 +15,6 @@ interface CommentListProps {
 
 export const CommentList = memo((props: CommentListProps) => {
   const { className, comments, isLoading } = props;
-  const dispatch = useAppDispatch();
   const { t } = useTranslation();
 
   return (

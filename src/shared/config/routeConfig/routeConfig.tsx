@@ -34,7 +34,7 @@ export const RoutePath: Record<AppRoutes, string> = {
 	[AppRoutes.CONTACTS]: '/contacts',
 	[AppRoutes.ARTICLE_DETAILS]: '/articles/', // + :id
 	[AppRoutes.ARTICLES]: '/articles',
-	[AppRoutes.PROFILE]: '/profile',
+	[AppRoutes.PROFILE]: '/profile/', // + :id
 	[AppRoutes.ERROR]: '/*',
 	[AppRoutes.TEST]: '/test',
 }
@@ -57,7 +57,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
 		element: <ContactsPage />,
 	},
 	[AppRoutes.PROFILE]: {
-		path: RoutePath.profile,
+		path: `${RoutePath.profile}:id`,
 		element: <ProfilePage />,
 		authOnly: true,
 	},
