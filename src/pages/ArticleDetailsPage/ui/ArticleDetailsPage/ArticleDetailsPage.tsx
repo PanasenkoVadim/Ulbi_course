@@ -18,6 +18,7 @@ import { useSelector } from 'react-redux'
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDIspatch'
 import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId'
+import { AddCommentForm } from 'features/AddCommentForm'
 
 type ArticleDetailsPageProps = {
 	className?: string
@@ -45,6 +46,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 			<div className={classNames(css.articleDetailsPage, {}, [className])}>
 				<ArticleDetails id={id} />
 				<Text className={css.commentsTitle} title={t('Комментарии')} />
+				<AddCommentForm />
 				<CommentList comments={comments} isLoading={commentsIsLoading} />
 			</div>
 		</DynamicModuleLoader>
