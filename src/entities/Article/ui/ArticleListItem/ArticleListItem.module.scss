@@ -1,7 +1,50 @@
-.articleDetails{
-	img{
-		height: 200px;
-		object-fit: cover;
-		width: 100%;
+.item {
+	&.TILES {
+		.image {
+			position: relative;
+			height: 200px;
+			margin-bottom: 10px;
+
+			img {
+				object-fit: cover;
+				height: 100%;
+				width: 100%;
+			}
+		}
+
+		.date {
+			position: absolute;
+			right: 0;
+			top: 0;
+			padding: 10px;
+			background-color: var(--inverted-bg-color-opacity);
+			backdrop-filter: blur(5px);
+			border-bottom-left-radius: 10px;
+		}
+
+		.row {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.type {
+			white-space: nowrap;
+		}
+
+		.views {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			margin-left: 10px;
+		}
+
+		.name {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			font-size: 18px;
+			padding-top: 10px;
+			font-weight: 700;
+		}
 	}
 }

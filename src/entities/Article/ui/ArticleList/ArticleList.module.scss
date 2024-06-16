@@ -1,31 +1,13 @@
-.article {
-	padding-bottom: 60px;
-
-	&Avatar {
-		width: fit-content;
-		margin: 0 auto 40px;
-	}
-
-	&Title {
-		margin-bottom: 40px;
-	}
-
-	&Info {
-		display: flex;
-		align-items: center;
-		gap: 8px;
-	}
-}
-
-.skeleton {
+.list {
 	display: grid;
 	gap: 20px;
+	max-width: 100%;
 
-	div:first-child {
-		justify-self: center;
+	&.TILES {
+		grid-template-columns: repeat(3, calc((100% - 60px) / 4));
 	}
-}
 
-.block {
-	margin-bottom: 40px;
+	&.LIST {
+		grid-template-columns: 100%;
+	}
 }

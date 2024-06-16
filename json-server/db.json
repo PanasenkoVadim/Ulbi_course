@@ -84,6 +84,122 @@
           ]
         }
       ]
+    },
+    {
+      "id": "2",
+      "title": "Новые клиентские хуки React 19",
+      "subtitle": "Что нового в JavaScript в 2024 году?",
+      "img": "https://purpleschool.ru/_next/image?url=https%3A%2F%2Fcdn-bucket.hb.bizmrg.com%2Fpurple-images%2Fprofile-images%2Fdcfc3826-e14c-47d0-9dc1-572acee9f3f1.png&w=1920&q=75",
+      "views": 12,
+      "createdAt": "26.02.2022",
+      "type": [
+        "it",
+        "frontend",
+        "js"
+      ],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Вопреки распространенному мнению, основная команда разработчиков React занимается не только серверными компонентами React и Next.js. В следующей версии — React 19 — появятся новые клиентские хуки. Они сфокусированы на двух ключевых аспектах: выборке данных и работе с формами. Эти хуки повысят производительность всех React-разработчиков, включая тех, кто создает одностраничные приложения.",
+            "Без дальнейших предисловий давайте познакомимся с новыми хуками!",
+            "use(Promise)",
+            "use(Context)",
+            "Form Actions",
+            "useFormState",
+            "useFormStatus",
+            "useOptimistic",
+            "Бонус: Async Transitions",
+            "Примечание: эти хуки доступны только в экспериментальной (canary) версии React. Они должны быть включены в новую версию React 19, но до финального релиза в API возможны изменения."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "TEXT",
+          "title": "use(Promise)",
+          "paragraphs": [
+            "Этот хук представляет собой официальное API для 'ожидания данных' (suspending) на клиенте. Ему можно передать промис, и React будет ждать его выполнения. Основной синтаксис, взятый из документации React, выглядит следующим образом:"
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "import { use } from 'react';\nfunction MessageComponent({\nmessagePromise }) {\nconst message = use(messagePromise);\n// ...}"
+        },
+        {
+          "id": "3",
+          "type": "IMAGE",
+          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "title": "Рисунок 1 - скриншот сайта"
+        },
+        {
+          "id": "4",
+          "type": "TEXT",
+          "paragraphs": [
+            "Хорошая новость заключается в том, что этот хук можно использовать для выборки данных (data fetching). Вот пример запроса данных при монтировании компонента и нажатии на кнопку. Обратите внимание, что в коде не используется хук useEffect:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Новые клиентские хуки React 19",
+      "subtitle": "Что нового в JavaScript в 2024 году?",
+      "img": "https://purpleschool.ru/_next/image?url=https%3A%2F%2Fcdn-bucket.hb.bizmrg.com%2Fpurple-images%2Fprofile-images%2Fdcfc3826-e14c-47d0-9dc1-572acee9f3f1.png&w=1920&q=75",
+      "views": 12,
+      "createdAt": "26.02.2022",
+      "type": [
+        "it",
+        "frontend",
+        "js"
+      ],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Вопреки распространенному мнению, основная команда разработчиков React занимается не только серверными компонентами React и Next.js. В следующей версии — React 19 — появятся новые клиентские хуки. Они сфокусированы на двух ключевых аспектах: выборке данных и работе с формами. Эти хуки повысят производительность всех React-разработчиков, включая тех, кто создает одностраничные приложения.",
+            "Без дальнейших предисловий давайте познакомимся с новыми хуками!",
+            "use(Promise)",
+            "use(Context)",
+            "Form Actions",
+            "useFormState",
+            "useFormStatus",
+            "useOptimistic",
+            "Бонус: Async Transitions",
+            "Примечание: эти хуки доступны только в экспериментальной (canary) версии React. Они должны быть включены в новую версию React 19, но до финального релиза в API возможны изменения."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "TEXT",
+          "title": "use(Promise)",
+          "paragraphs": [
+            "Этот хук представляет собой официальное API для 'ожидания данных' (suspending) на клиенте. Ему можно передать промис, и React будет ждать его выполнения. Основной синтаксис, взятый из документации React, выглядит следующим образом:"
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "import { use } from 'react';\nfunction MessageComponent({\nmessagePromise }) {\nconst message = use(messagePromise);\n// ...}"
+        },
+        {
+          "id": "3",
+          "type": "IMAGE",
+          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "title": "Рисунок 1 - скриншот сайта"
+        },
+        {
+          "id": "4",
+          "type": "TEXT",
+          "paragraphs": [
+            "Хорошая новость заключается в том, что этот хук можно использовать для выборки данных (data fetching). Вот пример запроса данных при монтировании компонента и нажатии на кнопку. Обратите внимание, что в коде не используется хук useEffect:"
+          ]
+        }
+      ]
     }
   ],
   "comments": [
@@ -142,28 +258,34 @@
       "id": 9
     },
     {
-      "articleId": "1",
+      "articleId": "2",
       "userId": "2",
       "text": "asdasasdasd",
       "id": 10
     },
     {
-      "articleId": "1",
+      "articleId": "2",
       "userId": "2",
       "text": "asdasasdasd",
       "id": 11
     },
     {
-      "articleId": "1",
+      "articleId": "2",
       "userId": "2",
       "text": "asdasasdasd",
       "id": 12
     },
     {
-      "articleId": "1",
+      "articleId": "2",
       "userId": "1",
       "text": "Приветики!!!",
       "id": 13
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "text": "asd",
+      "id": 14
     }
   ],
   "profile": [
