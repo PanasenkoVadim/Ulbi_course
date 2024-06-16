@@ -3,9 +3,10 @@ import classNames from 'shared/lib/classNames/classNames'
 import MenuLogo from 'shared/static/images/menuBtn.svg'
 import { Button } from 'shared/ui/Button/Button'
 import { LangSwitcher, ThemeSwitcher } from 'shared/ui/Switchers'
-import { NavItemsList } from 'widgets/Sidebar/model/items'
 import NavItem from '../NavItem/NavItem'
 import css from './Sidebar.module.scss'
+import { useSelector } from 'react-redux'
+import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems'
 
 interface SidebarProps {
 	className?: string
@@ -13,6 +14,7 @@ interface SidebarProps {
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
 	const [collapsed, setCollapsed] = useState(false)
+	const NavItemsList = useSelector(getSidebarItems)
 	const onOpenClick = () => {
 		setCollapsed(!collapsed)
 		document.body.classList.toggle('sidebar-open')

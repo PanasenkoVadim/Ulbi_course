@@ -1,5 +1,4 @@
-import { articlesReducer } from 'entities/Article'
-import { getArticleDetailsData } from 'entities/Article/model/selectors/articleDetails'
+import { ArticleList, articlesReducer, getArticleList } from 'entities/Article'
 import { fetchArticles } from 'entities/Article/model/services/fetchArticles/fetchArticles'
 import { memo, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -10,6 +9,7 @@ import {
 	ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDIspatch'
+import css from "./ArticlesPage.module.scss"
 
 type ArticlesPageProps = {
 	className?: string
@@ -21,15 +21,17 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 	const { className } = props
 	const { t } = useTranslation()
 	const dispatch = useAppDispatch()
-	const articles = useSelector(getArticleDetailsData)
+	const articles = useSelector(getArticleList) || []
+
 	useEffect(() => {
 		dispatch(fetchArticles())
-	}, [dispatch, articles])
+	}, [dispatch])
 
 	return (
 		<DynamicModuleLoader reducers={initialReducers}>
-			<div className={classNames('atricles', {}, [className])}>
+			<div className={classNames(css.articles, {}, [className])}>
 				{t('ArticlesPage')}
+				<ArticleList articles={articles} />
 			</div>
 		</DynamicModuleLoader>
 	)

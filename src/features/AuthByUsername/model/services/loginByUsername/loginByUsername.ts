@@ -15,7 +15,8 @@ export const loginByUsername = createAsyncThunk<
 	ThunkConfig<string>
 >(
 	'login/loginByUsername',
-	async (authData, { dispatch, extra, rejectWithValue }) => {
+	async (authData, { dispatch, extra, rejectWithValue,getState }) => {
+		
 		try {
 			const responce = await extra.api.post<User>('/login', authData)
 
@@ -24,7 +25,7 @@ export const loginByUsername = createAsyncThunk<
 			}
 			localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(responce.data))
 			dispatch(userActions.setAuthData(responce.data))
-			extra.navigate?.('/profile')
+			extra.navigate?.(`/profile/${responce.data.id}`)
 			return responce.data
 		} catch (error) {
 			return rejectWithValue(i18n.t('Неверный логин или пароль'))

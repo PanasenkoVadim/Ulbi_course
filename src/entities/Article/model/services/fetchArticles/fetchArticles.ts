@@ -7,10 +7,9 @@ export const fetchArticles = createAsyncThunk<
 	Article[],
 	void,
 	ThunkConfig<string>
->('aticleDetails/fetchArticles', async (_, { extra, rejectWithValue }) => {
+>('articles/fetchArticles', async (_, { extra, rejectWithValue }) => {
 	try {
 		const responce = await extra.api.get<Article[]>(`/articles`)
-
 		return responce.data
 	} catch (error) {
 		return rejectWithValue(i18n.t('error'))

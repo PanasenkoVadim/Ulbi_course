@@ -8,7 +8,7 @@ import { Button, ThemeButton } from 'shared/ui/Button/Button'
 import Container from '../../Container/Container'
 import css from './Header.module.scss'
 import AppLink from 'shared/ui/AppLink/AppLink'
-import { AppRoutes } from 'shared/config/routeConfig/routeConfig'
+import { AppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig'
 
 export const Header: FC = () => {
 	const { t } = useTranslation()
@@ -31,7 +31,7 @@ export const Header: FC = () => {
 					<div className={css.personal}>
 						{authData ? (
 							<>
-								<AppLink to={AppRoutes.PROFILE} className={css.personal_btn}>
+								<AppLink to={RoutePath.profile + authData.id} className={css.personal_btn}>
 									{t('Профиль')}
 								</AppLink>
 								<Button

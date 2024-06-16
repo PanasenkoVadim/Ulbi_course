@@ -12,7 +12,7 @@ import { NavLink } from 'react-router-dom'
 
 type CommentCardProps = {
 	className?: string
-	comment: Comment
+	comment?: Comment
 	isLoading?: boolean
 }
 
@@ -29,6 +29,8 @@ export const CommentCard = memo((props: CommentCardProps) => {
 			</div>
 		)
 	}
+	
+	if(!comment) return 
 
 	return (
 		<div className={classNames(css.commentCard, {}, [className])}>

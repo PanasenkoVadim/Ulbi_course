@@ -38,7 +38,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const dispatch = useAppDispatch();
 
   const onSendComment = useCallback((text: string) => {
-	console.log(123123)
     dispatch(addArticleComment(text));
   }, [dispatch]);
 

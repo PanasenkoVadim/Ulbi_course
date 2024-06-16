@@ -1,0 +1,31 @@
+.article {
+	padding-bottom: 60px;
+
+	&Avatar {
+		width: fit-content;
+		margin: 0 auto 40px;
+	}
+
+	&Title {
+		margin-bottom: 40px;
+	}
+
+	&Info {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
+}
+
+.skeleton {
+	display: grid;
+	gap: 20px;
+
+	div:first-child {
+		justify-self: center;
+	}
+}
+
+.block {
+	margin-bottom: 40px;
+}

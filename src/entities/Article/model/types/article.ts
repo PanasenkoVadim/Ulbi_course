@@ -46,3 +46,8 @@ export enum ArticleType {
   SCIENCE = "SCIENCE",
   ECONOMICS = "ECONOMICS",
 }
+
+export enum ArticleListView {
+  LIST = "LIST",
+  TILES = "TILES"
+}

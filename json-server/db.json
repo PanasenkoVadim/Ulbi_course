@@ -158,11 +158,17 @@
       "userId": "2",
       "text": "asdasasdasd",
       "id": 12
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Приветики!!!",
+      "id": 13
     }
   ],
   "profile": [
     {
-      "id": 1,
+      "id": "1",
       "firstname": "ioyuuio",
       "lastname": "Фамилия",
       "age": 123,
@@ -173,7 +179,7 @@
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu0xOlgRPBlASnuPj0zyXsQ_8bPoXDh-3Eflnz5pHl2T2KUcMttAifJfx30BEScD6bb_c&usqp=CAU"
     },
     {
-      "id": 2,
+      "id": "2",
       "firstname": "Енот",
       "lastname": "Фамилия",
       "age": 123,

@@ -78,7 +78,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 	return (
 		<DynamicModuleLoader reducers={reducers}>
 			<div className={classNames(css.profile, {}, [className])}>
-				<ProfilePageHeader isLoading={isLoading} readonly={readonly} profileId={id} />
+				<ProfilePageHeader isLoading={isLoading} readonly={readonly}/>
 				<ProfileCard
 					readonly={readonly}
 					formData={formData}
