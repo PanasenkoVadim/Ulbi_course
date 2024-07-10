@@ -8,7 +8,7 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDIspatch'
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'
 import css from './ArticleListItem.module.scss'
-import { Article, ArticleListView } from '../../model/types/article'
+import { Article, ArticleView } from '../../model/types/article'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import { Link } from 'react-router-dom'
 import { Icon } from 'shared/ui/Icon/Icon'
@@ -18,7 +18,7 @@ import { Text, TextSize } from 'shared/ui/Text/Text'
 type ArticleListItemProps = {
 	className?: string
 	article: Article
-	view: ArticleListView
+	view: ArticleView
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
@@ -26,7 +26,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 	const { t } = useTranslation()
 	const dispatch = useAppDispatch()
 
-	if (view === ArticleListView.TILES) {
+	if (view === ArticleView.TILES) {
 		return (
 			<div
 				className={classNames(css.item, {}, [className, css[view]])}

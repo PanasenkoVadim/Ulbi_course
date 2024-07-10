@@ -50,7 +50,7 @@ export enum ArticleType {
   ECONOMICS = "ECONOMICS",
 }
 
-export enum ArticleListView {
+export enum ArticleView {
   LIST = "LIST",
   TILES = "TILES"
 }

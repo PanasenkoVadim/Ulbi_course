@@ -1,10 +1,5 @@
-import {
-	ArticleList,
-	ArticleListView,
-	articlesReducer,
-	getArticleList,
-} from 'entities/Article'
-import { fetchArticles } from 'entities/Article/model/services/fetchArticles/fetchArticles'
+import { ArticleList, ArticleView } from 'entities/Article'
+
 import { memo, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
@@ -20,22 +15,30 @@ import { Button, ThemeButton } from 'shared/ui/Button/Button'
 import TilesLogo from 'shared/static/images/views/tiles.svg'
 import ListLogo from 'shared/static/images/views/list.svg'
 import { Icon } from 'shared/ui/Icon/Icon'
+import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList'
+import {
+	articlesPageActions,
+	articlesPageReducer,
+	getArticles,
+} from '../../model/slices/articlesPageSlice'
+import { getArticlesPageView } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors'
 
 type ArticlesPageProps = {
 	className?: string
 }
 const initialReducers: ReducersList = {
-	articles: articlesReducer,
+	articlesPage: articlesPageReducer,
 }
 const ArticlesPage = (props: ArticlesPageProps) => {
 	const { className } = props
-	const [view, setView] = useState("LIST")
 	const { t } = useTranslation('articles')
 	const dispatch = useAppDispatch()
-	const articles = useSelector(getArticleList) || []
+	const articles = useSelector(getArticles.selectAll)
+	const view = useSelector(getArticlesPageView)
 
 	useEffect(() => {
-		dispatch(fetchArticles())
+		dispatch(fetchArticlesList())
+		dispatch(articlesPageActions.initState())
 	}, [dispatch])
 
 	return (
@@ -44,15 +47,25 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 				<div className={css.heading}>
 					<Text className={css.title} title={t('Статьи')} size={TextSize.L} />
 					<div>
-						<Button onClick={()=> setView("TILES")} theme={ThemeButton.CLEAR}>
+						<Button
+							onClick={() => {
+								dispatch(articlesPageActions.setView(ArticleView.TILES))
+							}}
+							theme={ThemeButton.CLEAR}
+						>
 							<Icon Svg={TilesLogo} />
 						</Button>
-						<Button onClick={()=> setView("LIST")} theme={ThemeButton.CLEAR}>
+						<Button
+							onClick={() => {
+								dispatch(articlesPageActions.setView(ArticleView.LIST))
+							}}
+							theme={ThemeButton.CLEAR}
+						>
 							<Icon Svg={ListLogo} />
 						</Button>
 					</div>
 				</div>
-				<ArticleList articles={articles} view={view as ArticleListView} />
+				<ArticleList articles={articles} view={view as ArticleView} />
 			</div>
 		</DynamicModuleLoader>
 	)
