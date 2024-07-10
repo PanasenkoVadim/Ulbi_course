@@ -1,5 +1,8 @@
+import { User } from 'entities/user'
+
 export interface Article {
   id: string;
+  user: User;
   title: string;
   subtitle: string;
   img: string;

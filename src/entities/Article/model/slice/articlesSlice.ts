@@ -22,7 +22,6 @@ const articlesSlice = createSlice({
 				fetchArticles.fulfilled,
 				(state, action: PayloadAction<Article[]>) => {
 					state.isLoading = false
-					console.log("asdasd")
 					state.data = action.payload
 				}
 			)

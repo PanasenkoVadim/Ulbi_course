@@ -13,6 +13,7 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import { Link } from 'react-router-dom'
 import { Icon } from 'shared/ui/Icon/Icon'
 import Eye from 'shared/static/images/eye.svg'
+import { Text, TextSize } from 'shared/ui/Text/Text'
 
 type ArticleListItemProps = {
 	className?: string
@@ -27,7 +28,9 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
 	if (view === ArticleListView.TILES) {
 		return (
-			<div className={classNames(css.item, {}, [className, css[view]])}>
+			<div
+				className={classNames(css.item, {}, [className, css[view]])}
+			>
 				<Link to={RoutePath.article_details + article.id}>
 					<div className={css.image}>
 						<img src={article.img} alt='' />
@@ -49,7 +52,9 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 	return (
 		<div className={classNames(css.item, {}, [className, css[view]])}>
 			<img src={article.img} alt='' />
-			<Link to={RoutePath.article_details + article.id}>{article.title}</Link>
+			<Link to={RoutePath.article_details + article.id}>
+				<Text className={css.title} title={article.title} size={TextSize.L} />
+			</Link>
 			<div>{article.subtitle}</div>
 			<span>{article.createdAt}</span>
 			<div>{article.type.join(', ')}</div>
