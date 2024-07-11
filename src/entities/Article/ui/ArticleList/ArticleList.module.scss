@@ -4,7 +4,19 @@
 	max-width: 100%;
 
 	&.TILES {
-		grid-template-columns: repeat(3, calc((100% - 60px) / 4));
+		grid-template-columns: repeat(3, calc((100% - 40px) / 3));
+
+		@media (width <= 1024px){
+			&{
+				grid-template-columns: repeat(2, calc((100% - 20px) / 2));
+			}
+		}
+
+		@media (width <= 768px){
+			&{
+				grid-template-columns: 100%;
+			}
+		}
 	}
 
 	&.LIST {
