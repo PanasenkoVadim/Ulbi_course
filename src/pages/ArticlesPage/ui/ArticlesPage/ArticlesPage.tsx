@@ -18,7 +18,11 @@ import {
 	articlesPageReducer,
 	getArticles,
 } from '../../model/slices/articlesPageSlice'
-import { getArticlesPageView } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors'
+import {
+	getArticlesPageError,
+	getArticlesPageIsLoading,
+	getArticlesPageView,
+} from 'pages/ArticlesPage/model/selectors/articlesPageSelectors'
 
 type ArticlesPageProps = {
 	className?: string
@@ -32,12 +36,17 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 	const dispatch = useAppDispatch()
 	const articles = useSelector(getArticles.selectAll)
 	const view = useSelector(getArticlesPageView)
+	const error = useSelector(getArticlesPageError)
+	const isLoading = useSelector(getArticlesPageIsLoading)
 
 	useEffect(() => {
 		dispatch(fetchArticlesList())
 		dispatch(articlesPageActions.initState())
 	}, [dispatch])
-
+	
+	if (error) {
+		return <>{error}</>
+	}
 	return (
 		<DynamicModuleLoader reducers={initialReducers}>
 			<div className={classNames(css.articles, {}, [className])}>
@@ -45,7 +54,11 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 					<Text className={css.title} title={t('Статьи')} size={TextSize.L} />
 					<ArticleViewSelector />
 				</div>
-				<ArticleList articles={articles} view={view as ArticleView} />
+				<ArticleList
+					articles={articles}
+					isLoading={isLoading}
+					view={view as ArticleView}
+				/>
 			</div>
 		</DynamicModuleLoader>
 	)

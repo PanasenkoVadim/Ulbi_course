@@ -1,27 +1,54 @@
 .item {
+	.views {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		margin-left: 10px;
+	}
+
 	&.LIST {
-		position: relative;
+		background-color: var(--inverted-bg-color-opacity);
+		padding: 20px 30px;
+
+		.item_top {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
 
 		.user {
 			display: flex;
 			align-items: center;
-			gap: 16px;
-			position: absolute;
-			left: 10px;
-			top: 10px;
+			gap: 7px;
+			margin-bottom: 7px;
 
 			img {
-				width: 60px;
-				height: 60px;
+				width: 33px;
+				height: 33px;
 				border-radius: 50%;
 				object-fit: cover;
 			}
 
 		}
 
+		.title {
+			display: block;
+			width: fit-content;
+			margin-bottom: 7px;
+		}
+
+		.subtitle {
+			margin-bottom: 20px;
+		}
+
+		.tags {
+			margin-bottom: 8px;
+		}
+
 		.img {
 			padding-bottom: 40%;
 			position: relative;
+			margin: 0 -30px 16px;
 
 			img {
 				position: absolute;
@@ -32,6 +59,20 @@
 				object-fit: cover;
 			}
 		}
+
+		.text {
+			-webkit-line-clamp: 8;
+			line-clamp: 8;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+			margin-bottom: 50px;
+		}
+
+		.item_bottom {
+			justify-content: space-between;
+			display: flex;
+		}
 	}
 
 	&.TILES {
@@ -39,11 +80,19 @@
 			position: relative;
 			height: 200px;
 			margin-bottom: 10px;
+			overflow: hidden;
 
 			img {
 				object-fit: cover;
 				height: 100%;
 				width: 100%;
+				transition: transform .2s ease-in-out;
+			}
+		}
+
+		&:hover {
+			.image img {
+				transform: scale(1.1);
 			}
 		}
 
@@ -66,19 +115,12 @@
 			white-space: nowrap;
 		}
 
-		.views {
-			display: flex;
-			align-items: center;
-			gap: 10px;
-			margin-left: 10px;
-		}
-
 		.name {
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			font-size: 18px;
-			padding-top: 10px;
+			margin-top: 10px;
 			font-weight: 700;
 		}
 	}

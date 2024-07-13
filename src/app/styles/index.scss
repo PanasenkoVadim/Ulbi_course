@@ -16,7 +16,12 @@
 
 main {
 	flex-grow: 1;
-	width: 100%;
+	max-width: calc(100% - 62px);
+	transition: max-width 0.3s ease-out;
+
+	.sidebar-open & {
+		max-width: calc(100% - 200px);
+	}
 }
 
 .wrapper {
@@ -34,24 +39,36 @@ main {
 .content {
 	padding: 40px 20px 20px 60px;
 	max-height: calc(100vh - 128px);
-	overflow: auto;
 	width: 100%;
+	overflow-y: auto;
 
 	&::-webkit-scrollbar {
-		width: 18px; /* ширина всей полосы прокрутки */
+		width: 18px;
+
+		/* ширина всей полосы прокрутки */
 	}
 
 	&::-webkit-scrollbar-track {
-		background: var(--inverted-bg-color); /* цвет зоны отслеживания */
+		background: var(--inverted-bg-color);
+
+		/* цвет зоны отслеживания */
 	}
 
 	&::-webkit-scrollbar-thumb {
 		background-color: var(--secondary-color);
-		border: 5px solid var(--inverted-bg-color); /* цвет бегунка */
-		border-radius: 20px; /* округлось бегунка */
+		border: 5px solid var(--inverted-bg-color);
+
+		/* цвет бегунка */
+		border-radius: 20px;
+
+		/* округлось бегунка */
 	}
 }
 
-img{
+img {
 	max-width: 100%;
+}
+
+body{
+	overflow: hidden;
 }
