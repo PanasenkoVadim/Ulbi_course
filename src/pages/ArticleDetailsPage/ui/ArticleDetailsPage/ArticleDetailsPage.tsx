@@ -20,6 +20,7 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDIspatch";
 import { AddCommentForm } from "features/AddCommentForm";
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { addArticleComment } from "../../model/services/addArticleComment/addArticleComment";
+import { Page } from 'shared/ui/Page/Page'
 
 type ArticleDetailsPageProps = {
   className?: string;
@@ -49,12 +50,12 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(css.articleDetailsPage, {}, [className])}>
+      <Page className={classNames(css.articleDetailsPage, {}, [className])}>
         <ArticleDetails id={id} />
         <Text className={css.commentsTitle} title={t("Комментарии")} />
         <AddCommentForm onSendComment={onSendComment} />
         <CommentList comments={comments} isLoading={commentsIsLoading} />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

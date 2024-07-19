@@ -27,11 +27,9 @@ const AppRouter = () => {
   return (
     <>
       <main>
-        <div className="content">
           <Suspense fallback={<PageLoader />}>
             <Routes>{Object.values(routeConfig).map(renderWithWrapper)}</Routes>
           </Suspense>
-        </div>
       </main>
     </>
   );

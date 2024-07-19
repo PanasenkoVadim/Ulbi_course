@@ -25,6 +25,7 @@ import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { validateErrorText } from 'entities/Profile/model/services/validateProfileData/validateProfileData'
 import { useParams } from 'react-router-dom'
+import { Page } from 'shared/ui/Page/Page'
 
 const reducers: ReducersList = {
 	profile: profileReducer,
@@ -77,7 +78,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
 	return (
 		<DynamicModuleLoader reducers={reducers}>
-			<div className={classNames(css.profile, {}, [className])}>
+			<Page className={classNames(css.profile, {}, [className])}>
 				<ProfilePageHeader isLoading={isLoading} readonly={readonly}/>
 				<ProfileCard
 					readonly={readonly}
@@ -100,7 +101,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 							text={validateErrorText[error]}
 						/>
 					))}
-			</div>
+			</Page>
 		</DynamicModuleLoader>
 	)
 }
