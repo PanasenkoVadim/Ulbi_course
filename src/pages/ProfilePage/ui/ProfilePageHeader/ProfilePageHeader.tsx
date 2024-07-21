@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import classNames from 'shared/lib/classNames/classNames'
-import { Button, ThemeButton } from 'shared/ui/Button/Button'
+import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Text } from 'shared/ui/Text/Text'
 import css from './ProfilePageHeader.module.scss'
 import { useCallback } from 'react'
@@ -44,21 +44,21 @@ const ProfilePageHeader = ({
 			{isCanEdit && (
 				<div className={css.actions}>
 					{readonly ? (
-						<Button theme={ThemeButton.OUTLINE} onClick={onEditClick}>
+						<Button theme={ButtonTheme.OUTLINE} onClick={onEditClick}>
 							{t('Редактировать')}
 						</Button>
 					) : (
 						<>
 							<Button
 								disabled={isLoading}
-								theme={ThemeButton.OUTLINE_ACCENT}
+								theme={ButtonTheme.OUTLINE_ACCENT}
 								onClick={onCancelEdit}
 							>
 								{t('Отменить')}
 							</Button>
 							<Button
 								disabled={isLoading}
-								theme={ThemeButton.OUTLINE}
+								theme={ButtonTheme.OUTLINE}
 								onClick={onSaveClick}
 							>
 								{t('Сохранить')}

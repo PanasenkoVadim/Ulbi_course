@@ -14,8 +14,9 @@ import css from './ArticlesPage.module.scss'
 
 import {
 	getArticlesPageError,
+	getArticlesPageInited,
 	getArticlesPageIsLoading,
-	getArticlesPageView
+	getArticlesPageView,
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors'
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList'
 import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage'
@@ -25,6 +26,7 @@ import {
 	articlesPageReducer,
 	getArticles,
 } from '../../model/slices/articlesPageSlice'
+import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage'
 
 type ArticlesPageProps = {
 	className?: string
@@ -46,15 +48,14 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 	}, [dispatch])
 
 	useEffect(() => {
-		dispatch(articlesPageActions.initState())
-		dispatch(fetchArticlesList({ page: 1 }))
+		 dispatch(initArticlesPage())
 	}, [dispatch])
 
 	if (error) {
 		return <>{error}</>
 	}
 	return (
-		<DynamicModuleLoader reducers={initialReducers}>
+		<DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={false}>
 			<Page
 				onScrollEnd={onLoadNextPart}
 				className={classNames(css.articles, {}, [className])}

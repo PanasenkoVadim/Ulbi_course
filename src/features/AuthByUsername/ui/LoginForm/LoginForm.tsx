@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import classNames from 'shared/lib/classNames/classNames'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDIspatch'
-import { Button, ThemeButton } from 'shared/ui/Button/Button'
+import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError'
@@ -17,6 +17,9 @@ import {
 	DynamicModuleLoader,
 	ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { useNavigate } from 'react-router-dom'
+import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import { User } from 'entities/user'
 
 export interface LoginFormProps {
 	className?: string
@@ -33,7 +36,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 	const password = useSelector(getLoginPassword)
 	const isLoading = useSelector(getLoginLoading)
 	const error = useSelector(getLoginError)
-
+	const navigate = useNavigate()
 	const onChangeUsername = useCallback(
 		(value: string) => {
 			dispatch(loginActions.setUsername(value))
@@ -55,8 +58,10 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 			typeof onSuccess === 'function'
 		) {
 			onSuccess()
+			const { id } = result?.payload as User
+			navigate(RoutePath.profile + id)
 		}
-	}, [dispatch, onSuccess, password, username])
+	}, [dispatch, onSuccess, password, username, navigate])
 
 	return (
 		<DynamicModuleLoader reducers={initialReducers}>
@@ -89,7 +94,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 					onClick={onLoginClick}
 					className={css.form_btn}
 					disabled={isLoading}
-					theme={ThemeButton.BACKGROUND}
+					theme={ButtonTheme.BACKGROUND}
 				>
 					{t('Войти')}
 				</Button>

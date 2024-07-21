@@ -5,7 +5,7 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import classNames from 'shared/lib/classNames/classNames'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDIspatch'
 import Eye from 'shared/static/images/eye.svg'
-import { Button, ThemeButton } from 'shared/ui/Button/Button'
+import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Icon } from 'shared/ui/Icon/Icon'
 import { Text, TextSize } from 'shared/ui/Text/Text'
 import {
@@ -78,7 +78,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 			</div>
 			<div className={css.text}>{textBlock.paragraphs}</div>
 			<div className={css.item_bottom}>
-				<Button theme={ThemeButton.OUTLINE} onClick={onReadMoreClick}>
+				<Button theme={ButtonTheme.OUTLINE} onClick={onReadMoreClick}>
 					Читать далее...
 				</Button>
 				<div className={css.views}>

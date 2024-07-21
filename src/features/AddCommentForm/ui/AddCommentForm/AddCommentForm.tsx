@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import classNames from "shared/lib/classNames/classNames";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDIspatch";
-import { Button, ThemeButton } from "shared/ui/Button/Button";
+import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Input } from "shared/ui/Input/Input";
 import {
   getAddCommentFormError,
@@ -59,7 +59,7 @@ const AddCommentForm = memo(
             onClick={onSendHandler}
             className={css.form_btn}
             disabled={!commentText}
-            theme={ThemeButton.OUTLINE}
+            theme={ButtonTheme.OUTLINE}
           >
             {t("Отправить")}
           </Button>

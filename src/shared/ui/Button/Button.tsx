@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, FC, ReactNode, memo } from 'react'
 import classNames from 'shared/lib/classNames/classNames'
 import css from './Button.module.scss'
 
-export enum ThemeButton {
+export enum ButtonTheme {
 	CLEAR = 'clear',
 	OUTLINE = 'outline',
 	OUTLINE_ACCENT = 'outline_accent',
@@ -12,7 +12,7 @@ export enum ThemeButton {
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	className?: string
-	theme?: ThemeButton
+	theme?: ButtonTheme
 	children?: ReactNode
 }
 
@@ -20,7 +20,7 @@ export const Button = memo((props: ButtonProps) => {
 	const {
 		className,
 		children,
-		theme = ThemeButton.BACKGROUND,
+		theme = ButtonTheme.BACKGROUND,
 		disabled,
 		...otherProps
 	} = props

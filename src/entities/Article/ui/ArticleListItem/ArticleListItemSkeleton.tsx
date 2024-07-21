@@ -1,21 +1,10 @@
 import { memo } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Link, useNavigate } from 'react-router-dom'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import classNames from 'shared/lib/classNames/classNames'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDIspatch'
-import Eye from 'shared/static/images/eye.svg'
-import { Button, ThemeButton } from 'shared/ui/Button/Button'
-import { Icon } from 'shared/ui/Icon/Icon'
-import { Text, TextSize } from 'shared/ui/Text/Text'
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import {
-	Article,
-	ArticleBlockType,
-	ArticleTextBlock,
-	ArticleView,
+	ArticleView
 } from '../../model/types/article'
 import css from './ArticleListItem.module.scss'
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 
 type ArticleListItemSkeletonProps = {
 	className?: string
@@ -25,9 +14,6 @@ type ArticleListItemSkeletonProps = {
 export const ArticleListItemSkeleton = memo(
 	(props: ArticleListItemSkeletonProps) => {
 		const { className, view } = props
-		const { t } = useTranslation()
-		const dispatch = useAppDispatch()
-		const navigate = useNavigate()
 		if (view === ArticleView.TILES) {
 			return (
 				<div className={classNames(css.item, {}, [className, css[view]])}>

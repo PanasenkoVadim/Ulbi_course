@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, ThemeButton } from 'shared/ui/Button/Button'
+import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import TilesLogo from 'shared/static/images/views/tiles.svg'
 import ListLogo from 'shared/static/images/views/list.svg'
 import { Icon } from 'shared/ui/Icon/Icon'
@@ -17,7 +17,7 @@ export const ArticleViewSelector = (props: Props) => {
 				onClick={() => {
 					dispatch(articlesPageActions.setView(ArticleView.TILES))
 				}}
-				theme={ThemeButton.CLEAR}
+				theme={ButtonTheme.CLEAR}
 			>
 				<Icon Svg={TilesLogo} />
 			</Button>
@@ -25,7 +25,7 @@ export const ArticleViewSelector = (props: Props) => {
 				onClick={() => {
 					dispatch(articlesPageActions.setView(ArticleView.LIST))
 				}}
-				theme={ThemeButton.CLEAR}
+				theme={ButtonTheme.CLEAR}
 			>
 				<Icon Svg={ListLogo} />
 			</Button>

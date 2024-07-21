@@ -4,7 +4,7 @@ import { useCallback, useState, type FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDIspatch'
-import { Button, ThemeButton } from 'shared/ui/Button/Button'
+import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import Container from '../../Container/Container'
 import css from './Header.module.scss'
 import AppLink from 'shared/ui/AppLink/AppLink'
@@ -36,7 +36,7 @@ export const Header: FC = () => {
 								</AppLink>
 								<Button
 									onClick={onLogout}
-									theme={ThemeButton.CLEAR}
+									theme={ButtonTheme.CLEAR}
 									className={css.personal_btn}
 								>
 									{t('Выйти')}
@@ -44,12 +44,12 @@ export const Header: FC = () => {
 							</>
 						) : (
 							<>
-								<Button theme={ThemeButton.CLEAR} className={css.personal_btn}>
+								<Button theme={ButtonTheme.CLEAR} className={css.personal_btn}>
 									{t('Зарегистрироваться')}
 								</Button>
 								<Button
 									onClick={onToggleModal}
-									theme={ThemeButton.CLEAR}
+									theme={ButtonTheme.CLEAR}
 									className={css.personal_btn}
 								>
 									{t('Войти')}

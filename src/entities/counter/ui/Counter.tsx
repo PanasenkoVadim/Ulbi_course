@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { Button, ThemeButton } from 'shared/ui/Button/Button'
+import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue'
 import { counterActions } from '../model/slice/counterSlice'
 
@@ -15,10 +15,10 @@ export const Counter = () => {
 	return (
 		<>
 			<h1>{value}</h1>
-			<Button theme={ThemeButton.BACKGROUND} onClick={increment}>
+			<Button theme={ButtonTheme.BACKGROUND} onClick={increment}>
 				+
 			</Button>
-			<Button theme={ThemeButton.BACKGROUND} onClick={decrement}>
+			<Button theme={ButtonTheme.BACKGROUND} onClick={decrement}>
 				-
 			</Button>
 		</>
