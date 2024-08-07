@@ -43,3 +43,26 @@ img {
 body{
 	overflow: hidden;
 }
+
+*::-webkit-scrollbar {
+	width: 18px;
+	height: 16px;
+
+	/* ширина всей полосы прокрутки */
+}
+
+*::-webkit-scrollbar-track {
+	background: var(--inverted-bg-color);
+
+	/* цвет зоны отслеживания */
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: var(--secondary-color);
+	border: 3px solid var(--inverted-bg-color);
+
+	/* цвет бегунка */
+	border-radius: 20px;
+
+	/* округлось бегунка */
+}

@@ -5,3 +5,10 @@
 .commentsTitle {
 	margin-bottom: 30px;
 }
+
+.recommendations{
+	overflow: auto hidden;
+	grid-template-columns: repeat(4, calc((100% - 48px) / 3)) !important;
+	margin-bottom: 40px;
+	padding-bottom: 40px;
+}

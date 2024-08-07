@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { HTMLAttributeAnchorTarget, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import classNames from 'shared/lib/classNames/classNames'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDIspatch'
@@ -13,15 +13,16 @@ type ArticleListProps = {
 	articles: Article[]
 	isLoading?: boolean
 	view?: ArticleView
+	target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
-	const { className, articles, isLoading, view = ArticleView.TILES } = props
+	const { className, articles, isLoading, view = ArticleView.TILES, target } = props
 	const { t } = useTranslation()
 	const dispatch = useAppDispatch()
 
 	const renderArticle = (article: Article) => {
-		return <ArticleListItem article={article} view={view} />
+		return <ArticleListItem article={article} view={view} target={target} />
 	}
 
 	const getSkeletons = (view: ArticleView) => {
