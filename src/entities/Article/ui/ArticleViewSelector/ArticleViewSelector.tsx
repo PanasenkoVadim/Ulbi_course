@@ -1,34 +1,50 @@
-import React from 'react'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import TilesLogo from 'shared/static/images/views/tiles.svg'
-import ListLogo from 'shared/static/images/views/list.svg'
-import { Icon } from 'shared/ui/Icon/Icon'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDIspatch'
-import { articlesPageActions } from 'pages/ArticlesPage/model/slices/articlesPageSlice'
 import { ArticleView } from 'entities/Article/model/types/article'
+import classNames from 'shared/lib/classNames/classNames'
+import ListLogo from 'shared/static/images/views/list.svg'
+import TilesLogo from 'shared/static/images/views/tiles.svg'
+import { Button, ButtonTheme } from 'shared/ui/Button/Button'
+import { Icon } from 'shared/ui/Icon/Icon'
+import css from './ArticleViewSelector.module.scss'
+import { memo } from 'react'
 
-type Props = {}
+type ArticleViewSelectorProps = {
+	className?: string
+	view: ArticleView
+	onViewClick?: (view: ArticleView) => void
+}
 
-export const ArticleViewSelector = (props: Props) => {
-	const dispatch = useAppDispatch()
+const viewTypes = [
+	{
+		view: ArticleView.TILES,
+		icon: TilesLogo,
+	},
+	{
+		view: ArticleView.LIST,
+		icon: ListLogo,
+	},
+]
+
+export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
+	const { className, view, onViewClick } = props
+	const onClick = (newView: ArticleView) => () => {
+		onViewClick?.(newView)
+	}
 	return (
-		<div>
-			<Button
-				onClick={() => {
-					dispatch(articlesPageActions.setView(ArticleView.TILES))
-				}}
-				theme={ButtonTheme.CLEAR}
-			>
-				<Icon Svg={TilesLogo} />
-			</Button>
-			<Button
-				onClick={() => {
-					dispatch(articlesPageActions.setView(ArticleView.LIST))
-				}}
-				theme={ButtonTheme.CLEAR}
-			>
-				<Icon Svg={ListLogo} />
-			</Button>
+		<div className={classNames(css.view, {}, [className])}>
+			{viewTypes.map(viewType => (
+				<Button
+					className={classNames(
+						css.viewBtn,
+						{ [css.active]: viewType.view === view },
+						[]
+					)}
+					onClick={onClick(viewType.view)}
+					theme={ButtonTheme.CLEAR}
+					key={viewType.view}
+				>
+					<Icon Svg={viewType.icon} />
+				</Button>
+			))}
 		</div>
 	)
-}
+})

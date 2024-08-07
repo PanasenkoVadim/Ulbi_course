@@ -6,6 +6,7 @@ import css from './ArticleList.module.scss'
 import { Article, ArticleView } from '../../model/types/article'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
+import { Text } from 'shared/ui/Text/Text'
 
 type ArticleListProps = {
 	className?: string
@@ -34,7 +35,13 @@ export const ArticleList = memo((props: ArticleListProps) => {
 			</>
 		)
 	}
-
+	// if (!isLoading && !articles.length) {
+	// 	return (
+	// 		<div className={classNames(css.list, {}, [className, css[view]])}>
+	// 			<Text text={t('Статьи не найдены')} />
+	// 		</div>
+	// 	)
+	// }
 	return (
 		<div className={classNames(css.list, {}, [className, css[view]])}>
 			{articles.length > 0 ? articles.map(renderArticle) : null}

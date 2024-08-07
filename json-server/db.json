@@ -17,13 +17,13 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JavaScript в 2024 году?",
       "img": "https://habrastorage.org/getpro/habr/upload_files/49c/bf5/767/49cbf57670297ad4c361679dd1ccf71c.png",
-      "views": 12,
+      "views": 260,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
-        "it",
-        "frontend",
-        "js"
+        "IT",
+        "FRONTEND",
+        "JS"
       ],
       "blocks": [
         {
@@ -91,11 +91,11 @@
       "title": "Новые клиентские хуки React 19",
       "subtitle": "Что нового в JavaScript в 2024 году?",
       "img": "https://purpleschool.ru/_next/image?url=https%3A%2F%2Fcdn-bucket.hb.bizmrg.com%2Fpurple-images%2Fprofile-images%2Fdcfc3826-e14c-47d0-9dc1-572acee9f3f1.png&w=1920&q=75",
-      "views": 12,
-      "createdAt": "26.02.2022",
+      "views": 482,
+      "createdAt": "03.04.2023",
       "userId": "2",
       "type": [
-        "it",
+        "IT",
         "frontend",
         "js"
       ],
@@ -147,14 +147,14 @@
     },
     {
       "id": "3",
-      "title": "Новые клиентские хуки React 19",
+      "title": "Redux toolkit Query",
       "subtitle": "Что нового в JavaScript в 2024 году?",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHGlSO1a6BjsgHzdgBAVs4PbvbQi5PvBGOcA&s",
-      "views": 12,
-      "createdAt": "26.02.2022",
+      "views": 1024,
+      "createdAt": "01.02.2024",
       "userId": "1",
       "type": [
-        "it",
+        "IT",
         "frontend",
         "js"
       ],
@@ -209,11 +209,11 @@
       "title": "PHP 9",
       "subtitle": "Что нового в JavaScript в 2024 году?",
       "img": "https://www.epitech-it.es/wp-content/uploads/2021/05/que-es-php.jpg",
-      "views": 12,
-      "createdAt": "26.02.2022",
+      "views": 1,
+      "createdAt": "22.01.2021",
       "userId": "1",
       "type": [
-        "it",
+        "IT",
         "frontend",
         "js"
       ],
@@ -230,14 +230,14 @@
     },
     {
       "id": "5",
-      "title": "Новые клиентские хуки React 19",
+      "title": "Mock Data",
       "subtitle": "Что нового в JavaScript в 2024 году?",
       "img": "https://media.proglib.io/posts/2020/12/06/62cf6bd0938fda2f588142b86920161a.png",
-      "views": 12,
-      "createdAt": "26.02.2022",
+      "views": 120,
+      "createdAt": "14.09.2023",
       "userId": "1",
       "type": [
-        "it",
+        "IT",
         "frontend",
         "js"
       ],
@@ -254,14 +254,14 @@
     },
     {
       "id": "6",
-      "title": "Новые клиентские хуки React 19",
+      "title": "REST API",
       "subtitle": "Что нового в JavaScript в 2024 году?",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfuv43WFuuybBBqDCM3pEuCRp4E6D37uPRcw&s",
-      "views": 12,
-      "createdAt": "26.02.2022",
+      "views": 222,
+      "createdAt": "21.01.2023",
       "userId": "1",
       "type": [
-        "it",
+        "IT",
         "frontend",
         "js"
       ],
@@ -278,14 +278,14 @@
     },
     {
       "id": "7",
-      "title": "Новые клиентские хуки React 19",
+      "title": "Assembler",
       "subtitle": "Что нового в JavaScript в 2024 году?",
       "img": "https://www.zdnet.com/a/img/resize/0a6b0be2f543ddbf313fc83a706b807b77c3c202/2021/07/19/8a337c80-5ed6-43a1-98fb-b981d420890f/programming-languages-shutterstock-1680857539.jpg?auto=webp&fit=crop&height=900&width=1200",
-      "views": 12,
-      "createdAt": "26.02.2022",
+      "views": 18,
+      "createdAt": "22.07.2022",
       "userId": "1",
       "type": [
-        "it",
+        "IT",
         "frontend",
         "js"
       ],
@@ -302,16 +302,14 @@
     },
     {
       "id": "8",
-      "title": "Новые клиентские хуки React 19",
+      "title": "Query string",
       "subtitle": "Что нового в JavaScript в 2024 году?",
       "img": "https://www.forbes.com/advisor/wp-content/uploads/2022/06/computer_programming.jpeg-900x510.jpg",
-      "views": 12,
-      "createdAt": "26.02.2022",
+      "views": 122,
+      "createdAt": "12.06.2023",
       "userId": "1",
       "type": [
-        "it",
-        "frontend",
-        "js"
+        "JS"
       ],
       "blocks": [
         {
@@ -326,16 +324,14 @@
     },
     {
       "id": "9",
-      "title": "Новые клиентские хуки React 19",
+      "title": "Как найти первую стажировку",
       "subtitle": "Что нового в JavaScript в 2024 году?",
-      "img": "https://purpleschool.ru/_next/image?url=https%3A%2F%2Fcdn-bucket.hb.bizmrg.com%2Fpurple-images%2Fprofile-images%2Fdcfc3826-e14c-47d0-9dc1-572acee9f3f1.png&w=1920&q=75",
-      "views": 12,
-      "createdAt": "26.02.2022",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrZmBMQLR0ZIQck7-G3JRQf_UKlOthTtgsJA&s",
+      "views": 14,
+      "createdAt": "01.02.2024",
       "userId": "1",
       "type": [
-        "it",
-        "frontend",
-        "js"
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -350,16 +346,14 @@
     },
     {
       "id": "10",
-      "title": "Новые клиентские хуки React 19",
-      "subtitle": "Что нового в JavaScript в 2024 году?",
+      "title": "Pyton News 2024",
+      "subtitle": "Новости Python",
       "img": "https://purpleschool.ru/_next/image?url=https%3A%2F%2Fcdn-bucket.hb.bizmrg.com%2Fpurple-images%2Fprofile-images%2Fdcfc3826-e14c-47d0-9dc1-572acee9f3f1.png&w=1920&q=75",
-      "views": 12,
-      "createdAt": "26.02.2022",
+      "views": 666,
+      "createdAt": "26.02.2024",
       "userId": "1",
       "type": [
-        "it",
-        "frontend",
-        "js"
+        "IT"
       ],
       "blocks": [
         {
@@ -377,11 +371,11 @@
       "title": "Новые клиентские хуки React 19",
       "subtitle": "Что нового в JavaScript в 2024 году?",
       "img": "https://purpleschool.ru/_next/image?url=https%3A%2F%2Fcdn-bucket.hb.bizmrg.com%2Fpurple-images%2Fprofile-images%2Fdcfc3826-e14c-47d0-9dc1-572acee9f3f1.png&w=1920&q=75",
-      "views": 12,
+      "views": 88,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
-        "it",
+        "IT",
         "frontend",
         "js"
       ],
@@ -401,11 +395,11 @@
       "title": "Новые клиентские хуки React 19",
       "subtitle": "Что нового в JavaScript в 2024 году?",
       "img": "https://purpleschool.ru/_next/image?url=https%3A%2F%2Fcdn-bucket.hb.bizmrg.com%2Fpurple-images%2Fprofile-images%2Fdcfc3826-e14c-47d0-9dc1-572acee9f3f1.png&w=1920&q=75",
-      "views": 12,
+      "views": 92,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
-        "it",
+        "IT",
         "frontend",
         "js"
       ],
@@ -425,11 +419,11 @@
       "title": "Новые клиентские хуки React 19",
       "subtitle": "Что нового в JavaScript в 2024 году?",
       "img": "https://purpleschool.ru/_next/image?url=https%3A%2F%2Fcdn-bucket.hb.bizmrg.com%2Fpurple-images%2Fprofile-images%2Fdcfc3826-e14c-47d0-9dc1-572acee9f3f1.png&w=1920&q=75",
-      "views": 12,
+      "views": 114,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
-        "it",
+        "IT",
         "frontend",
         "js"
       ],
@@ -449,11 +443,11 @@
       "title": "Новые клиентские хуки React 19",
       "subtitle": "Что нового в JavaScript в 2024 году?",
       "img": "https://purpleschool.ru/_next/image?url=https%3A%2F%2Fcdn-bucket.hb.bizmrg.com%2Fpurple-images%2Fprofile-images%2Fdcfc3826-e14c-47d0-9dc1-572acee9f3f1.png&w=1920&q=75",
-      "views": 12,
+      "views": 124,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
-        "it",
+        "IT",
         "frontend",
         "js"
       ],
@@ -473,13 +467,11 @@
       "title": "Новые клиентские хуки React 19",
       "subtitle": "Что нового в JavaScript в 2024 году?",
       "img": "https://purpleschool.ru/_next/image?url=https%3A%2F%2Fcdn-bucket.hb.bizmrg.com%2Fpurple-images%2Fprofile-images%2Fdcfc3826-e14c-47d0-9dc1-572acee9f3f1.png&w=1920&q=75",
-      "views": 12,
+      "views": 564,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
-        "it",
-        "frontend",
-        "js"
+        "IT"
       ],
       "blocks": [
         {
@@ -494,16 +486,14 @@
     },
     {
       "id": "16",
-      "title": "Новые клиентские хуки React 19",
+      "title": "Экономика",
       "subtitle": "Что нового в JavaScript в 2024 году?",
-      "img": "https://purpleschool.ru/_next/image?url=https%3A%2F%2Fcdn-bucket.hb.bizmrg.com%2Fpurple-images%2Fprofile-images%2Fdcfc3826-e14c-47d0-9dc1-572acee9f3f1.png&w=1920&q=75",
-      "views": 12,
+      "img": "https://cdn.corporatefinanceinstitute.com/assets/economic-growth.jpeg",
+      "views": 5433,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
-        "it",
-        "frontend",
-        "js"
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -525,7 +515,7 @@
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
-        "it",
+        "IT",
         "frontend",
         "js"
       ],
@@ -549,7 +539,7 @@
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
-        "it",
+        "IT",
         "frontend",
         "js"
       ],
@@ -573,7 +563,7 @@
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
-        "it",
+        "IT",
         "frontend",
         "js"
       ],

@@ -14,19 +14,19 @@ import css from './ArticlesPage.module.scss'
 
 import {
 	getArticlesPageError,
-	getArticlesPageInited,
 	getArticlesPageIsLoading,
 	getArticlesPageView,
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors'
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList'
 import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage'
+import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage'
 import { Page } from 'shared/ui/Page/Page'
 import {
 	articlesPageActions,
 	articlesPageReducer,
 	getArticles,
 } from '../../model/slices/articlesPageSlice'
-import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage'
+import { ArticlesPageFilters } from '../ArticlePageFilters/ArticlesPageFilters'
+import { useSearchParams } from 'react-router-dom'
 
 type ArticlesPageProps = {
 	className?: string
@@ -42,14 +42,15 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 	const view = useSelector(getArticlesPageView)
 	const error = useSelector(getArticlesPageError)
 	const isLoading = useSelector(getArticlesPageIsLoading)
-
+	const [searchParams] = useSearchParams()
+	
 	const onLoadNextPart = useCallback(() => {
 		dispatch(fetchNextArticlesPage())
 	}, [dispatch])
 
 	useEffect(() => {
-		 dispatch(initArticlesPage())
-	}, [dispatch])
+		dispatch(initArticlesPage(searchParams))
+	}, [dispatch, searchParams])
 
 	if (error) {
 		return <>{error}</>
@@ -62,7 +63,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 			>
 				<div className={css.heading}>
 					<Text className={css.title} title={t('Статьи')} size={TextSize.L} />
-					<ArticleViewSelector />
+					<ArticlesPageFilters />
 				</div>
 				<ArticleList
 					articles={articles}

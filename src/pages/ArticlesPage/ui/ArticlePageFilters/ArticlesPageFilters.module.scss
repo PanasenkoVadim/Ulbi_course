@@ -1,0 +1,19 @@
+.filter {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+
+	.input {
+		input {
+			transition: all .2s ease-in-out;
+			height: 35px;
+			width: 210px;
+			font-size: 14px;
+
+			&:focus{
+				width: 350px;
+				
+			}
+		}
+	}
+}

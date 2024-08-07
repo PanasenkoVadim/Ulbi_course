@@ -1,9 +1,19 @@
-import { MutableRefObject, ReactNode, UIEvent, memo, useEffect, useRef } from 'react'
+import {
+	MutableRefObject,
+	ReactNode,
+	UIEvent,
+	memo,
+	useEffect,
+	useRef,
+} from 'react'
 import classNames from 'shared/lib/classNames/classNames'
 import css from './Page.module.scss'
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDIspatch'
-import { ScrollPositionActions, getScrollByPath } from 'features/AuthByUsername copy'
+import {
+	ScrollPositionActions,
+	getScrollByPath,
+} from 'features/AuthByUsername copy'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import { useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
@@ -22,7 +32,9 @@ export const Page = memo((props: PageProps) => {
 	const triggerRef = useRef() as MutableRefObject<HTMLDivElement>
 	const dispatch = useAppDispatch()
 	const { pathname } = useLocation()
-	const scrollPosition = useSelector((state:StateSchema)=> getScrollByPath(state, pathname))
+	const scrollPosition = useSelector((state: StateSchema) =>
+		getScrollByPath(state, pathname)
+	)
 
 	useInfiniteScroll({
 		triggerRef,
@@ -30,15 +42,15 @@ export const Page = memo((props: PageProps) => {
 		callback: onScrollEnd,
 	})
 
-	useEffect(()=>{
+	useEffect(() => {
 		wrapperRef.current.scrollTop = scrollPosition
-	},[scrollPosition])
+	}, [scrollPosition])
 
 	const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
 		dispatch(
 			ScrollPositionActions.setScrollPosition({
 				position: e.currentTarget.scrollTop,
-				path: pathname ,
+				path: pathname,
 			})
 		)
 	}, 500)
@@ -50,7 +62,7 @@ export const Page = memo((props: PageProps) => {
 			onScroll={onScroll}
 		>
 			{children}
-			<div ref={triggerRef} />
+			{onScrollEnd && <div className={css.trigger} ref={triggerRef} />}
 		</section>
 	)
 })
