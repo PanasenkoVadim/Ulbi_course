@@ -9,7 +9,7 @@ import { counterReducer } from 'entities/counter'
 import { userReducer } from 'entities/user'
 import { createReducerManager } from './reducerManager'
 import { $api } from 'shared/api/api'
-import { ScrollPositionReducer } from 'features/AuthByUsername copy'
+import { ScrollPositionReducer } from 'features/ScrollPosition'
 
 export function createReduxStore(
 	initialState?: StateSchema,

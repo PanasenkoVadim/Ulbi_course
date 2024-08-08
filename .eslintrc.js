@@ -47,6 +47,7 @@ module.exports = {
 		'react-hooks/rules-of-hooks': 'error',
 		'react-hooks/exhaustive-deps': 'error',
 		'react/display-name': 'off',
+		'i18next/no-literal-string': 'off',
 	},
 	globals: {
 		__IS_DEV__: true,

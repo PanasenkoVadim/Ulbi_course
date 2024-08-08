@@ -43,6 +43,12 @@ export const getSidebarItems = createSelector(getUserAuthData, userData => {
 				text: 'Статьи',
 				Icon: CatalogLogo,
 				authOnly: true,
+			},
+			{
+				path: RoutePath.article_create,
+				text: 'Новая статья',
+				Icon: CatalogLogo,
+				authOnly: true,
 			}
 		)
 	}

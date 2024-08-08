@@ -1,3 +1,8 @@
+import { StateSchema } from 'app/providers/StoreProvider'
+import {
+	ScrollPositionActions,
+	getScrollByPath,
+} from 'features/ScrollPosition'
 import {
 	MutableRefObject,
 	ReactNode,
@@ -6,19 +11,13 @@ import {
 	useEffect,
 	useRef,
 } from 'react'
-import classNames from 'shared/lib/classNames/classNames'
-import css from './Page.module.scss'
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDIspatch'
-import {
-	ScrollPositionActions,
-	getScrollByPath,
-} from 'features/AuthByUsername copy'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
-import { useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { StateSchema } from 'app/providers/StoreProvider'
+import { useLocation } from 'react-router-dom'
+import classNames from 'shared/lib/classNames/classNames'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDIspatch'
+import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
 import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle'
+import css from './Page.module.scss'
 
 type PageProps = {
 	className?: string

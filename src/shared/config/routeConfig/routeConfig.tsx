@@ -9,6 +9,7 @@ import {
 	ArticlesPage,
 	ArticleDetailsPage,
 } from 'pages'
+import { ArticleEditPage } from 'pages/ArticleEditPage'
 import { type RouteProps } from 'react-router-dom'
 
 export type AppRoutesProps = RouteProps & {
@@ -22,6 +23,8 @@ export enum AppRoutes {
 	CONTACTS = 'contacts',
 	ARTICLES = 'articles',
 	ARTICLE_DETAILS = 'article_details',
+	ARTICLE_CREATE = 'article_create',
+	ARTICLE_EDIT = 'article_edit',
 	PROFILE = 'profile',
 	ERROR = 'error',
 	TEST = 'test',
@@ -33,6 +36,8 @@ export const RoutePath: Record<AppRoutes, string> = {
 	[AppRoutes.CATALOG]: '/catalog',
 	[AppRoutes.CONTACTS]: '/contacts',
 	[AppRoutes.ARTICLE_DETAILS]: '/articles/', // + :id
+	[AppRoutes.ARTICLE_CREATE]: '/articles/new',
+	[AppRoutes.ARTICLE_EDIT]: '/articles/:id/edit/',
 	[AppRoutes.ARTICLES]: '/articles',
 	[AppRoutes.PROFILE]: '/profile/', // + :id
 	[AppRoutes.ERROR]: '/*',
@@ -69,6 +74,16 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
 	[AppRoutes.ARTICLE_DETAILS]: {
 		path: `${RoutePath.article_details}:id`,
 		element: <ArticleDetailsPage />,
+		authOnly: true,
+	},
+	[AppRoutes.ARTICLE_CREATE]: {
+		path: `${RoutePath.article_create}`,
+		element: <ArticleEditPage />,
+		authOnly: true,
+	},
+	[AppRoutes.ARTICLE_EDIT]: {
+		path: `${RoutePath.article_edit}`,
+		element: <ArticleEditPage />,
 		authOnly: true,
 	},
 	[AppRoutes.ERROR]: {

@@ -1,4 +1,4 @@
-import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article'
+import { ArticleList, ArticleView } from 'entities/Article'
 
 import { memo, useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -19,14 +19,13 @@ import {
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors'
 import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage'
 import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage'
-import { Page } from 'shared/ui/Page/Page'
+import { useSearchParams } from 'react-router-dom'
+import { Page } from 'widgets/Page/Page'
 import {
-	articlesPageActions,
 	articlesPageReducer,
-	getArticles,
+	getArticles
 } from '../../model/slices/articlesPageSlice'
 import { ArticlesPageFilters } from '../ArticlePageFilters/ArticlesPageFilters'
-import { useSearchParams } from 'react-router-dom'
 
 type ArticlesPageProps = {
 	className?: string
